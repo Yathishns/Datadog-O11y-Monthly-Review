@@ -1,0 +1,7 @@
+favorite	Type	Name	Intg	Requests	Error Rate	p95 Latency (ns)
+	http	api.stripe.com		520000	0.081000	520000000
+	http	uat-pricing.acme.internal		603000	0.000000	250000000
+	db	postgres		9800000	0.000400	4000000
+	cache	redis		6100000	0.000000	400000
+	http	legacy-erp.acme.internal		1440	1.000000	3100000000
+	http	www.youtube.com		300	0.000000	800000000

@@ -1,0 +1,52 @@
+{
+  "_comment": "Example per-org config for the fictional Acme Retail. Keys starting with _ are ignored. See README.md for every key.",
+  "org": {
+    "name": "Acme Retail",
+    "short": "acme-retail",
+    "prepared_for": "Acme Retail Digital",
+    "prepared_by": "Vsceptre Observability-as-a-Service",
+    "timezone": "Europe/London",
+    "utc_offset": "+00:00",
+    "production_envs": ["prod", "prd", "production"],
+    "internal_domains": ["acme.internal"]
+  },
+  "report": {
+    "max_findings": 8,
+    "diagrams": "both",
+    "delivered_alongside": "the *Acme [Leadership] — Shop Health at a Glance* dashboard and a pack of 6 monitors"
+  },
+  "window": {
+    "_comment": "the time range selected when exporting the Endpoints list; the kit checks it against the health-check cadence but cannot derive it (7, 14 and 28 days fit the same counts)",
+    "days": 7
+  },
+  "services": {
+    "display": {"checkout-api": "Checkout API", "catalog-api": "Catalog API", "payment-gateway": "Payment gateway", "notify-worker": "Notifications"},
+    "operations": {"checkout-api": "servlet.request", "catalog-api": "servlet.request", "payment-gateway": "servlet.request", "notify-worker": "servlet.request"}
+  },
+  "domains": [
+    {"key": "shop", "label": "Shoppers — web and app", "icon": "🛒", "audience": "Shoppers", "tier": "customer",
+     "services": ["^checkout-api$", "^catalog-api$"], "description": "the storefront's catalogue, cart and checkout"},
+    {"key": "payments", "label": "Payments", "icon": "💳", "audience": "Shoppers and finance", "tier": "customer",
+     "services": ["^payment-gateway$"], "description": "card authorisation and refunds through the payment provider"},
+    {"key": "comms", "label": "Customer communications", "icon": "✉️", "audience": "Shoppers", "tier": "staff",
+     "services": ["^notify-worker$"], "description": "order and shipping e-mails"}
+  ],
+  "operations": [
+    {"key": "checkout", "label": "checkouts", "service": "^checkout-api$", "match": "^POST /api/checkout$", "critical": true, "slo_success_pct": 99.5},
+    {"key": "authorise", "label": "card authorisations", "service": "^payment-gateway$", "match": "^POST /pay/authorise$", "critical": true, "slo_success_pct": 99.5},
+    {"key": "refund", "label": "refunds", "service": "^payment-gateway$", "match": "^POST /pay/refund$", "critical": false},
+    {"key": "search", "label": "product searches", "service": "^catalog-api$", "match": "^GET /api/search$", "critical": false, "slo_p95_s": 2.0}
+  ],
+  "noise": {
+    "health": ["^GET /actuator/health$"],
+    "not_noise": []
+  },
+  "hosts": {
+    "allowed_egress": ["^api\\.stripe\\.com$"]
+  },
+  "thresholds": {
+    "_comment": "Override any value from ddreview/defaults.json here.",
+    "fail_red_pct": 5.0
+  },
+  "previous": "auto"
+}

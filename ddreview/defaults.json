@@ -1,0 +1,123 @@
+{
+  "_comment": "Built-in knowledge the kit ships with. Everything here can be extended or overridden from the per-org config; nothing in here names a client. Count thresholds (fail_red_count, outlier_min_calls, slow_op_min_calls, dep_red_calls, dep_slow_min_calls, egress_red_calls, noise_min_failed, scanner_min_hits) are per 7 days of Endpoints-list data and scale with the exported range; min_calls_sample and the sample-tier gates apply to the span sample as it is. mom_min_failures and mom_rate_z gate month-over-month failure-rate changes (enough failures and a two-proportion z score).",
+
+  "thresholds": {
+    "min_calls_per_day": 70,
+    "min_calls_sample": 50,
+    "fail_amber_pct": 1.0,
+    "fail_red_pct": 5.0,
+    "fail_red_count": 1000,
+    "paired_tolerance_pct": 2.0,
+    "slow_p95_s": 2.0,
+    "slow_share_amber_pct": 20.0,
+    "slow_share_red_pct": 50.0,
+    "fixed_delay_floor_s": 1.0,
+    "fixed_delay_share_pct": 80.0,
+    "slow_op_s": 3.0,
+    "slow_op_min_calls": 100,
+    "outlier_p95_s": 10.0,
+    "outlier_min_calls": 1000,
+    "dep_fail_pct": 15.0,
+    "dep_min_calls": 50,
+    "dep_dead_pct": 99.5,
+    "dep_dead_min_calls": 20,
+    "dep_slow_s": 3.0,
+    "dep_slow_min_calls": 1000,
+    "dep_red_calls": 500,
+    "noise_share_pct": 50.0,
+    "noise_min_failed": 100,
+    "by_design_err_pct": 99.0,
+    "by_design_min_calls": 100,
+    "node_gap_pct": 30.0,
+    "node_idle_share_pct": 5.0,
+    "token_ratio": 1.0,
+    "token_red_ratio": 2.0,
+    "token_red_p95_s": 0.1,
+    "db_per_request": 10.0,
+    "http_per_request": 5.0,
+    "cache_per_request": 10.0,
+    "secret_reads_per_request": 0.1,
+    "repeat_child_per_entry": 5.0,
+    "framework_share_pct": 30.0,
+    "slow_without_children_pct": 50.0,
+    "burst_concentration_pct": 60.0,
+    "min_entry_spans_for_anatomy": 200,
+    "scanner_share_pct": 30.0,
+    "scanner_min_hits": 100,
+    "client_error_share_pct": 20.0,
+    "client_error_min_calls": 1000,
+    "egress_red_calls": 10000,
+    "monitors_min_share_pct": 1.0,
+    "catalog_tag_pct": 50.0,
+    "nonprod_env_share_pct": 0.5,
+    "mom_rate_pt": 0.5,
+    "mom_rel_pct": 10.0,
+    "mom_p95_pct": 20.0,
+    "mom_p95_floor_ms": 200,
+    "mom_volume_pct": 30.0,
+    "mom_min_failures": 10,
+    "mom_rate_z": 2.0,
+    "regression_err_x": 2.0,
+    "regression_p95_pct": 50.0
+  },
+
+  "noise": {
+    "health": ["(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$", "(?i)/actuator/(health|info|prometheus)", "(?i)^GET /favicon\\.ico$", "(?i)^((GET|HEAD) )?/?((?![0-9]+(/|$))[a-z0-9_.-]+/){0,4}_?(health|healthz)/?$", "(?i)^((GET|HEAD) )?/?((api|v\\d+|_?internal|management|monitoring)/)?(readyz|livez|startupz)/?$", "(?i)^((GET|HEAD) )?/?((?![0-9]+(/|$))[a-z0-9_.-]+/){0,3}(health|healthz|hc)/(ready|readiness|live|liveness|startup|started|well|db|deep|details?)/?$", "(?i)^((GET|HEAD) )?/?((q|management|manage|admin|internal|monitoring|actuator)/)?(metrics|prometheus)(/[a-z0-9_.-]+)?/?$", "(?i)^((GET|POST) )?/?grpc\\.health\\.v1\\.Health/(Check|Watch)$"],
+    "scanner": ["(?i)^((GET|HEAD|POST) )?/manager/(status|html|text)", "(?i)^((GET|HEAD|POST) )?/host-manager(/|$)", "(?i)^((GET|HEAD|POST) )?/examples/((servlets|jsp|websocket)(/|$)|index\\.html$|$)", "(?i)^((GET|HEAD) )?/docs/(RELEASE-NOTES\\.txt|changelog\\.html|introduction\\.html|setup\\.html|[a-z-]+-howto\\.html|appdev/.*|config/.*)?$", "(?i)phpinfo", "(?i)wp-(admin|login|content|includes|json)", "(?i)\\.\\./", "(?i)\\.env$", "(?i)/\\.git", "(?i)/cgi-bin", "(?i)/actuator(/|$)(?!health|info|prometheus)", "^(PROPFIND|MKCOL|TRACE|TRACK|BADMETHOD|BADMTHD|DEBUG)( |$)", "(?i)^OPTIONS \\*", "(?i)qualys|nessus|nikto|acunetix|sqlmap", "(?i)/(etc/passwd|boot\\.ini|win\\.ini)", "(?i)/(xmlrpc\\.php|wlwmanifest|vendor/phpunit|solr/admin)", "(?i)^((GET|HEAD|POST) )?/(jmx-console|web-console|admin-console)(/|$)", "(?i)^((GET|HEAD|POST) )?/console/(login|console\\.portal)", "(?i)^((GET|HEAD|POST) )?/invoker/(JMXInvokerServlet|EJBInvokerServlet|readonly)", "(?i)/(phpmyadmin|myadmin|pma|mysql/admin|sqladmin)(/|$)", "(?i)/\\.(aws|ssh|svn|hg|ds_store|htaccess|htpasswd)(/|$)", "(?i)/\\.env\\.[a-z]+$", "(?i)^((GET|HEAD) )?/(server-status|server-info)$", "(?i)/web\\.config$", "(?i)/(HNAP1|boaform|GponForm|_ignition/execute-solution|wls-wsat|elmah\\.axd|trace\\.axd)(/|$)", "(?i)^((GET|HEAD|POST) )?/setup\\.cgi$", "(?i)^((GET|HEAD) )?/(backup|db|dump|database|site|www)\\.(zip|sql|tar|tar\\.gz|tgz|bak|rar)$", "(?i)^((GET|HEAD|POST) )?/(shell|cmd|eval|c99|r57|wso)\\.php$"],
+    "static": ["(?i)\\.(css|js|map|png|jpe?g|gif|svg|ico|woff2?|ttf|eot|webp)(\\?|$)", "(?i)^GET /(static|assets|public|dist|_next/static)/"],
+    "framework": ["^Illuminate\\\\", "\\\\Events\\\\", "(?i)QueryExecuted|CacheHit|CacheMissed|StatementPrepared|RouteMatched", "^org\\.springframework\\.", "^System\\.(Threading|Runtime)",
+                  "(?i)^(ProviderRepository|ServiceProvider)::", "(?i)\\.bootstrap$"],
+    "auth": ["(?i)oauth2?/token", "(?i)/token$", "(?i)/connect/token", "(?i)/auth/(login|refresh|token)", "(?i)refreshToken", "(?i)/authenticate$", "(?i)/api/token$"]
+  },
+
+  "inprocess_operations": ["(?i)^hibernate\\.", "(?i)^trace\\.annotation$", "(?i)^repository\\.operation$", "(?i)^opentracing\\.", "(?i)^spring\\.handler$", "(?i)^aspnet_core_mvc\\.request$", "(?i)\\.middleware$", "(?i)^django\\.view$", "(?i)^flask\\.dispatch_request$",
+                           "(?i)^laravel\\.action$", "(?i)^symfony\\.controller$", "(?i)^rails\\.action_controller$"],
+  "client_operations": ["(?i)^http\\.request$", "(?i)^okhttp\\.request$", "(?i)^requests\\.request$", "(?i)^httpclient\\.request$", "(?i)^http\\.client\\.request$",
+                        "(?i)^grpc\\.client", "(?i)^aws\\.http$", "(?i)^guzzle\\.request$", "(?i)^curl\\.(exec|request)$", "(?i)^undici\\.request$", "(?i)^fetch$",
+                        "(?i)^aiohttp\\.request$", "(?i)^httpx\\.request$"],
+
+  "consumer_operations": ["(?i)\\.consume$", "(?i)\\.(receive|deliver|process)$", "(?i)^celery\\.run$", "(?i)^sidekiq\\.job$", "(?i)^(amqp|rabbitmq)\\.(consume|deliver)$"],
+  "entry_operations": ["(?i)\\.consume$", "(?i)\\.(receive|deliver|process)$", "(?i)^celery\\.run$", "(?i)^sidekiq\\.job$", "(?i)\\.request$", "(?i)\\.server$", "(?i)^servlet\\.", "(?i)^http\\.server", "(?i)^aws\\.lambda", "(?i)^grpc\\.server", "(?i)\\.handler$"],
+
+  "integration_services": ["pdo", "curl", "guzzle", "jdbc", "oracle", "sqlserver", "mysql", "mysql2", "postgres", "postgresql", "pg", "mongodb", "mongo", "redis", "memcached",
+                           "http-client", "http.client", "httpclient", "requests", "urllib3", "axios", "okhttp", "grpc-client", "grpc.client", "kafka", "rabbitmq", "sqs", "sns",
+                           "derby", "h2", "sqlite", "hibernate", "jpa", "spring-data", "celery-producer", "elasticsearch", "cassandra", "dynamodb", "net/http", "undici", "fetch", "aiohttp", "httpx", "psycopg", "sequelize", "knex", "prisma"],
+
+  "child_kinds": {
+    "db": ["sql", "db", "database", "cassandra", "mongodb", "redis_db", "elasticsearch", "dynamodb"],
+    "http": ["http", "web_client", "client", "grpc_client", "rpc"],
+    "cache": ["cache", "redis", "memcached"],
+    "queue": ["queue", "kafka", "rabbitmq", "sqs", "sns", "pubsub", "messaging"]
+  },
+  "db_services": ["pdo", "jdbc", "oracle", "sqlserver", "mysql", "mysql2", "postgres", "postgresql", "pg", "mongodb", "mongo", "derby", "h2", "sqlite", "cassandra", "dynamodb", "psycopg", "sequelize", "knex", "prisma", "elasticsearch", "sql-server"],
+  "cache_services": ["redis", "memcached", "elasticache"],
+  "http_services": ["curl", "guzzle", "http-client", "http.client", "httpclient", "requests", "urllib3", "axios", "okhttp", "net/http", "undici", "fetch", "aiohttp", "httpx"],
+  "queue_services": ["kafka", "rabbitmq", "sqs", "sns", "pubsub"],
+  "secret_store": ["(?i)vault\\.azure\\.net", "(?i)secretsmanager", "(?i)keyvault", "(?i)/ssm/", "(?i)parameter[-_ ]?store", "(?i)vault\\.(internal|svc|local)", "(?i)hashicorp"],
+
+  "hosts": {
+    "nonprod_markers": ["uat", "sit", "dev", "test", "tst", "stg", "staging", "qa", "preprod", "pre-prod", "sandbox", "sbx", "demo", "poc"],
+    "production": ["(?i)(^|\\.)dev\\.azure\\.com$", "(?i)\\.dev\\.azuresynapse\\.net$", "(?i)(^|\\.)dev\\.virtualearth\\.net$"],
+    "allowed_egress": ["(?i)(^|[.-])datadoghq\\.(com|eu)$", "(?i)(^|[.-])ddog-gov\\.com$"],
+    "telemetry": ["(?i)(^|\\.)(dc|rt)\\.services\\.visualstudio\\.com$", "(?i)livediagnostics", "(?i)applicationinsights", "(?i)newrelic", "(?i)dynatrace", "(?i)splunk", "(?i)sentry\\.io", "(?i)elastic\\.co", "(?i)appdynamics", "(?i)honeycomb\\.io", "(?i)logz\\.io"],
+    "cloud": ["(?i)\\.azure\\.(net|com)$", "(?i)\\.windows\\.net$", "(?i)\\.microsoftonline\\.com$", "(?i)\\.microsoft\\.com$", "(?i)\\.amazonaws\\.com$", "(?i)\\.googleapis\\.com$", "(?i)\\.gcr\\.io$", "(?i)\\.cloudfront\\.net$", "(?i)\\.azurewebsites\\.net$", "(?i)\\.azure-api\\.net$", "(?i)\\.servicebus\\.windows\\.net$", "(?i)(^|\\.)visualstudio\\.com$"],
+    "internal_suffixes": ["\\.local$", "\\.internal$", "\\.lan$", "\\.corp$", "\\.intra$", "\\.svc$", "\\.cluster\\.local$", "^localhost$"]
+  },
+
+  "operation_tech": {
+    "servlet.request": "Java servlet", "spring.handler": "Spring", "netty.request": "Java (Netty)", "undertow-http.request": "Java (Undertow)", "grpc.server": "gRPC",
+    "laravel.request": "Laravel (PHP)", "lumen.request": "Lumen (PHP)", "symfony.request": "Symfony (PHP)", "web.request": "web", "aspnet_core.request": ".NET (ASP.NET Core)",
+    "aspnet.request": ".NET (ASP.NET)", "aspnet-webapi.request": ".NET (Web API)", "express.request": "Node (Express)", "fastify.request": "Node (Fastify)", "koa.request": "Node (Koa)",
+    "hapi.request": "Node (hapi)", "next.request": "Node (Next.js)", "django.request": "Python (Django)", "flask.request": "Python (Flask)", "fastapi.request": "Python (FastAPI)",
+    "starlette.request": "Python (Starlette)", "rack.request": "Ruby (Rack)", "rails.action_controller": "Ruby on Rails", "sinatra.request": "Ruby (Sinatra)",
+    "http.request": "HTTP", "http.server.request": "HTTP server (OpenTelemetry / v1 naming)", "go.http.request": "Go", "aws.lambda": "AWS Lambda", "phoenix.request": "Elixir (Phoenix)"
+  },
+
+  "resource_shortening": {
+    "_comment": "Applied in order; first match wins. Keeps the part of a resource name a reader recognises.",
+    "rules": [
+      {"pattern": "^(?:[A-Za-z0-9_]+\\\\)+([A-Za-z0-9_]+@[A-Za-z0-9_]+)(?: unnamed_route)?$", "replace": "\\1", "why": "Laravel Controller@method"},
+      {"pattern": "^(.+?) unnamed_route$", "replace": "\\1", "why": "Laravel unnamed route suffix"}
+    ]
+  }
+}

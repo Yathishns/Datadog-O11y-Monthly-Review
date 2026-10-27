@@ -1,0 +1,9 @@
+flowchart LR
+  D_uat_pricing_acme_internal(["uat-pricing.acme.internal"])
+  S_catalog_api["catalog-api"]
+  D_legacy_erp_acme_internal(["legacy-erp.acme.internal"])
+  P_production_unknown["Production services (caller unknown)"]
+  S_catalog_api -->|"production → UAT"| D_uat_pricing_acme_internal
+  P_production_unknown -->|"fails every call"| D_legacy_erp_acme_internal
+  style D_uat_pricing_acme_internal fill:#ffe0e0,stroke:#c62828,color:#000
+  style D_legacy_erp_acme_internal fill:#ffe0e0,stroke:#c62828,color:#000

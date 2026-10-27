@@ -1,0 +1,8 @@
+flowchart LR
+  R_request["Payment gateway request"]
+  C_framework{"Java servlet"}
+  K_http(["HTTP calls"])
+  K_db[("database")]
+  R_request --> C_framework
+  C_framework -->|"~0.3 per request"| K_http
+  C_framework -->|"~0.2 per request"| K_db

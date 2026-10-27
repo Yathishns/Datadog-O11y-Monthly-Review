@@ -1,0 +1,11 @@
+flowchart TB
+  subgraph B_batch_posting["🧩 Batch Posting"]
+    direction LR
+    S_batch_posting_01["batch-posting-01<br/>entry service · 79 k req"]
+  end
+  subgraph B_online_banking_web["🧩 Online Banking Web"]
+    direction LR
+    S_online_banking_web["online-banking-web × 2<br/>entry service · 3.5 M req"]
+  end
+  style S_batch_posting_01 fill:#ffe0e0,stroke:#c62828,color:#000
+  style S_online_banking_web fill:#fff3cd,stroke:#b8860b,color:#000

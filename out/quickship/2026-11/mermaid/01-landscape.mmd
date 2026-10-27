@@ -1,0 +1,10 @@
+flowchart TB
+  subgraph B_shipping_api["🧩 Shipping API"]
+    direction LR
+    S_shipping_api["shipping-api<br/>entry service · 2 k req"]
+  end
+  subgraph B_tracking_api["🧩 Tracking API"]
+    direction LR
+    S_tracking_api["tracking-api<br/>entry service · 4 k req"]
+  end
+  style S_shipping_api fill:#fff3cd,stroke:#b8860b,color:#000

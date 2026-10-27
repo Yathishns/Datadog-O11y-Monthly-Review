@@ -1,0 +1,5 @@
+favorite	Type	Name	Health	Requests	Error Rate	p95 Latency (ns)	Monitors	SLOS	Envs	Last Deploy
+	web	checkout-api		1555200	0.006000	1671924109	"{""non-synthetics"": {""0"": 2}}"		prod	
+	web	catalog-api		4060800	0.001213	4385813471	"{""non-synthetics"": {""0"": 0}}"		prod	
+	web	payment-gateway		1278720	0.030405	2660268248	"{""non-synthetics"": {""0"": 1}}"		prod	
+	web	notify-worker		216000	0.012000	746439093	"{""non-synthetics"": {""0"": 0}}"			

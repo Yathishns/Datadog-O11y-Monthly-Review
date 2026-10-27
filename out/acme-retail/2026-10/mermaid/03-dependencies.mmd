@@ -1,0 +1,5 @@
+flowchart LR
+  D_legacy_erp_acme_internal(["legacy-erp.acme.internal"])
+  P_production_unknown["Production services (caller unknown)"]
+  P_production_unknown -->|"2.01 % fail · p95 3.10 s"| D_legacy_erp_acme_internal
+  style D_legacy_erp_acme_internal fill:#fff3cd,stroke:#b8860b,color:#000

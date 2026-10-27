@@ -1,0 +1,3567 @@
+{
+ "also_noted": [
+  {
+   "detector": "egress_and_telemetry",
+   "id": "egress_and_telemetry:estate",
+   "line": "**Servers call the public internet** — `www.youtube.com`",
+   "merged": [],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "public hosts called from production",
+     "subject": "estate",
+     "unit": "count",
+     "value": 1
+    }
+   },
+   "severity": "amber",
+   "subject": {
+    "host_severity": {
+     "www.youtube.com": "amber"
+    },
+    "hosts": [
+     "www.youtube.com"
+    ],
+    "key": "estate",
+    "service": null
+   },
+   "title": "Servers call the public internet"
+  }
+ ],
+ "anatomy": {
+  "catalog-api": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {
+    "cache": {
+     "den": 4083,
+     "num": 2705,
+     "value": 0.66
+    },
+    "db": {
+     "den": 4083,
+     "num": 5186,
+     "value": 1.27
+    }
+   },
+   "entries": 4083,
+   "entry_latency_ms": {
+    "p25": 288.1,
+    "p50": 437.6,
+    "p75": 737.5,
+    "p95": 2460.0,
+    "p99": 4400.0
+   },
+   "framework_share": {
+    "den": 4267,
+    "num": 0,
+    "pct": 0.0
+   },
+   "http_targets": [],
+   "minutes": 9.0,
+   "repeated_children": [],
+   "requests_with_tree": 4083,
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "secret_reads_per_request": {
+    "den": 4083,
+    "num": 0,
+    "value": 0.0
+   },
+   "slow_cut_ms": 2500,
+   "slow_without_children": {
+    "den": 201,
+    "num": 0,
+    "pct": 0.0
+   },
+   "tier": "sample",
+   "traces": 4083,
+   "traces_skipped": 0
+  },
+  "checkout-api": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {
+    "cache": {
+     "den": 1414,
+     "num": 1414,
+     "value": 1.0
+    },
+    "db": {
+     "den": 1414,
+     "num": 1777,
+     "value": 1.26
+    },
+    "http": {
+     "den": 1414,
+     "num": 363,
+     "value": 0.26
+    }
+   },
+   "entries": 1414,
+   "entry_latency_ms": {
+    "p25": 105.7,
+    "p50": 151.4,
+    "p75": 322.0,
+    "p95": 1100.0,
+    "p99": 1730.0
+   },
+   "framework_share": {
+    "den": 1589,
+    "num": 0,
+    "pct": 0.0
+   },
+   "http_targets": [],
+   "minutes": 9.0,
+   "repeated_children": [],
+   "requests_with_tree": 1414,
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "secret_reads_per_request": {
+    "den": 1414,
+    "num": 0,
+    "value": 0.0
+   },
+   "slow_cut_ms": 2500,
+   "slow_without_children": {
+    "den": 2,
+    "num": 0,
+    "pct": 0.0
+   },
+   "tier": "sample",
+   "traces": 1414,
+   "traces_skipped": 0
+  },
+  "notify-worker": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 224,
+   "entry_latency_ms": {
+    "p25": 118.4,
+    "p50": 203.1,
+    "p75": 328.5,
+    "p95": 652.4,
+    "p99": 907.9
+   },
+   "framework_share": {
+    "den": 224,
+    "num": 0,
+    "pct": 0.0
+   },
+   "http_targets": [],
+   "minutes": 9.0,
+   "repeated_children": [],
+   "requests_with_tree": 224,
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "secret_reads_per_request": {
+    "den": 224,
+    "num": 0,
+    "value": 0.0
+   },
+   "slow_cut_ms": 2500,
+   "slow_without_children": {
+    "den": 0,
+    "num": 0,
+    "pct": 0.0
+   },
+   "tier": "sample",
+   "traces": 224,
+   "traces_skipped": 0
+  },
+  "payment-gateway": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {
+    "db": {
+     "den": 1272,
+     "num": 312,
+     "value": 0.25
+    },
+    "http": {
+     "den": 1272,
+     "num": 341,
+     "value": 0.27
+    }
+   },
+   "entries": 1272,
+   "entry_latency_ms": {
+    "p25": 47.6,
+    "p50": 62.1,
+    "p75": 437.0,
+    "p95": 1680.0,
+    "p99": 2670.0
+   },
+   "framework_share": {
+    "den": 1272,
+    "num": 0,
+    "pct": 0.0
+   },
+   "http_targets": [],
+   "minutes": 9.0,
+   "repeated_children": [],
+   "requests_with_tree": 1272,
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "secret_reads_per_request": {
+    "den": 1272,
+    "num": 0,
+    "value": 0.0
+   },
+   "slow_cut_ms": 2500,
+   "slow_without_children": {
+    "den": 16,
+    "num": 0,
+    "pct": 0.0
+   },
+   "tier": "sample",
+   "traces": 1272,
+   "traces_skipped": 0
+  }
+ },
+ "catalog": null,
+ "caveats": [
+  "times are shown in UTC (the timezone 'Europe/London' could not be applied on the machine that built this review)",
+  "the Services list volumes cover about 6 days against 7 days for the Endpoints list (median ratio 0.87); rates and p95 are comparable, volumes are not"
+ ],
+ "coverage": {
+  "capabilities": {
+   "catalog": false,
+   "dependencies": "parent_child",
+   "env": true,
+   "inferred_list": true,
+   "operation_names": true,
+   "request_anatomy": true,
+   "services_list": true,
+   "status_codes": true,
+   "trace_tree_columns": true,
+   "weekly_volumes": true
+  },
+  "child_spans_present": true,
+  "columns": {
+   "env": true,
+   "error": false,
+   "host": true,
+   "operation": true,
+   "parent_id": true,
+   "peer": false,
+   "span_id": true,
+   "status": true,
+   "trace_id": true,
+   "ts": true,
+   "type": true,
+   "version": false
+  },
+  "detectors_run": [
+   "failing_operations",
+   "slow_hot_paths",
+   "slow_operations",
+   "failing_dependencies",
+   "nonprod_from_prod",
+   "noise_masks_signal",
+   "node_imbalance",
+   "call_ratio",
+   "chatty_requests",
+   "scanner_exposure",
+   "egress_and_telemetry",
+   "client_errors",
+   "foundations"
+  ],
+  "detectors_skipped": [
+   {
+    "label": "regressions since last month",
+    "name": "traffic_shift",
+    "reason": "needs last month's review",
+    "unlock": "no earlier month was compared in this build"
+   }
+  ],
+  "entry_rule": "a root span, or a span whose parent belongs to another service (integration libraries and host names excluded)",
+  "env_scope": {
+   "column": true,
+   "export_is_nonprod": false,
+   "mixed_services": [],
+   "nonprod_services": [],
+   "production_services": [
+    "catalog-api",
+    "checkout-api",
+    "notify-worker",
+    "payment-gateway"
+   ],
+   "unknown_services": []
+  },
+  "failure_signal": true,
+  "graph_method": "parent_child",
+  "host_visibility": true,
+  "inputs": {
+   "catalog": false,
+   "endpoints": true,
+   "inferred": true,
+   "services": true,
+   "spans": true
+  },
+  "monitors_known": true,
+  "unlock_hints": [],
+  "volumes_tier": "aggregate"
+ },
+ "dependencies": {
+  "api.stripe.com": {
+   "allowed": true,
+   "callers": [
+    {
+     "calls": 363,
+     "err": {
+      "den": 363,
+      "num": 37,
+      "pct": 10.1928
+     },
+     "failure_known": true,
+     "known": true,
+     "p95_s": 1.11,
+     "prod": {
+      "calls": 363,
+      "failed": 37,
+      "p95_s": 1.11
+     },
+     "service": "checkout-api"
+    },
+    {
+     "calls": 341,
+     "err": {
+      "den": 341,
+      "num": 30,
+      "pct": 8.7977
+     },
+     "failure_known": true,
+     "known": true,
+     "p95_s": 1.08,
+     "prod": {
+      "calls": 341,
+      "failed": 30,
+      "p95_s": 1.08
+     },
+     "service": "payment-gateway"
+    }
+   ],
+   "calls": 520000,
+   "class": "public",
+   "err": {
+    "den": 520000,
+    "num": 42120,
+    "pct": 8.1
+   },
+   "failed": 42120,
+   "failure_known": true,
+   "marker": "",
+   "p95_s": 0.52,
+   "source": "inferred",
+   "tier": "services_list",
+   "type": "http"
+  },
+  "legacy-erp.acme.internal": {
+   "allowed": false,
+   "callers": [],
+   "calls": 1440,
+   "class": "internal",
+   "err": {
+    "den": 1440,
+    "num": 29,
+    "pct": 2.0139
+   },
+   "failed": 29,
+   "failure_known": true,
+   "marker": "",
+   "p95_s": 3.1,
+   "source": "inferred",
+   "tier": "services_list",
+   "type": "http"
+  },
+  "postgres": {
+   "allowed": false,
+   "callers": [
+    {
+     "calls": 5186,
+     "err": {
+      "den": 5186,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failure_known": false,
+     "known": true,
+     "p95_s": 0.009,
+     "prod": {
+      "calls": 5186,
+      "failed": 0,
+      "p95_s": 0.009
+     },
+     "service": "catalog-api"
+    },
+    {
+     "calls": 1777,
+     "err": {
+      "den": 1777,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failure_known": false,
+     "known": true,
+     "p95_s": 0.009,
+     "prod": {
+      "calls": 1777,
+      "failed": 0,
+      "p95_s": 0.009
+     },
+     "service": "checkout-api"
+    },
+    {
+     "calls": 312,
+     "err": {
+      "den": 312,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failure_known": false,
+     "known": true,
+     "p95_s": 0.009,
+     "prod": {
+      "calls": 312,
+      "failed": 0,
+      "p95_s": 0.009
+     },
+     "service": "payment-gateway"
+    }
+   ],
+   "calls": 9800000,
+   "class": "internal",
+   "err": {
+    "den": 9800000,
+    "num": 3920,
+    "pct": 0.04
+   },
+   "failed": 3920,
+   "failure_known": true,
+   "marker": "",
+   "p95_s": 0.004,
+   "source": "inferred",
+   "tier": "services_list",
+   "type": "db"
+  },
+  "redis": {
+   "allowed": false,
+   "callers": [
+    {
+     "calls": 2705,
+     "err": {
+      "den": 2705,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failure_known": false,
+     "known": true,
+     "p95_s": 0.001,
+     "prod": {
+      "calls": 2705,
+      "failed": 0,
+      "p95_s": 0.001
+     },
+     "service": "catalog-api"
+    },
+    {
+     "calls": 1414,
+     "err": {
+      "den": 1414,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failure_known": false,
+     "known": true,
+     "p95_s": 0.001,
+     "prod": {
+      "calls": 1414,
+      "failed": 0,
+      "p95_s": 0.001
+     },
+     "service": "checkout-api"
+    }
+   ],
+   "calls": 6100000,
+   "class": "internal",
+   "err": {
+    "den": 6100000,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": true,
+   "marker": "",
+   "p95_s": 0.0,
+   "source": "inferred",
+   "tier": "services_list",
+   "type": "cache"
+  },
+  "www.youtube.com": {
+   "allowed": false,
+   "callers": [],
+   "calls": 300,
+   "class": "public",
+   "err": {
+    "den": 300,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": true,
+   "marker": "",
+   "p95_s": 0.8,
+   "source": "inferred",
+   "tier": "services_list",
+   "type": "http"
+  }
+ },
+ "domains": {
+  "comms": {
+   "audience": "Shoppers",
+   "counted_services": [
+    "notify-worker"
+   ],
+   "description": "order and shipping e-mails",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 259038,
+     "num": 3108,
+     "pct": 1.1998
+    },
+    "business": {
+     "den": 259038,
+     "num": 3108,
+     "pct": 1.1998
+    }
+   },
+   "failed": {
+    "all": 3108,
+    "business": 3108
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "✉️",
+   "label": "Customer communications",
+   "noise_share_of_failed": {
+    "den": 3108,
+    "num": 0,
+    "pct": 0.0
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    0.746,
+    0.746
+   ],
+   "requests": {
+    "all": 259038,
+    "business": 259038
+   },
+   "sample_only_services": [],
+   "services": [
+    "notify-worker"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 8193743,
+    "num": 259038,
+    "pct": 3.1614
+   },
+   "source": "config",
+   "tier": "staff",
+   "volume_tier": "aggregate"
+  },
+  "payments": {
+   "audience": "Shoppers and finance",
+   "counted_services": [
+    "payment-gateway"
+   ],
+   "description": "card authorisation and refunds through the payment provider",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 1465333,
+     "num": 44688,
+     "pct": 3.0497
+    },
+    "business": {
+     "den": 1465333,
+     "num": 44688,
+     "pct": 3.0497
+    }
+   },
+   "failed": {
+    "all": 44688,
+    "business": 44688
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "💳",
+   "label": "Payments",
+   "noise_share_of_failed": {
+    "den": 44688,
+    "num": 0,
+    "pct": 0.0
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    2.66,
+    2.66
+   ],
+   "requests": {
+    "all": 1465333,
+    "business": 1465333
+   },
+   "sample_only_services": [],
+   "services": [
+    "payment-gateway"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 8193743,
+    "num": 1465333,
+    "pct": 17.8836
+   },
+   "source": "config",
+   "tier": "customer",
+   "volume_tier": "aggregate"
+  },
+  "shop": {
+   "audience": "Shoppers",
+   "counted_services": [
+    "catalog-api",
+    "checkout-api"
+   ],
+   "description": "the storefront's catalogue, cart and checkout",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 6469372,
+     "num": 16435,
+     "pct": 0.254
+    },
+    "business": {
+     "den": 6066031,
+     "num": 16294,
+     "pct": 0.2686
+    }
+   },
+   "failed": {
+    "all": 16435,
+    "business": 16294
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "🛒",
+   "label": "Shoppers — web and app",
+   "noise_share_of_failed": {
+    "den": 16435,
+    "num": 141,
+    "pct": 0.8579
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    1.672,
+    4.386
+   ],
+   "requests": {
+    "all": 6469372,
+    "business": 6066031
+   },
+   "sample_only_services": [],
+   "services": [
+    "catalog-api",
+    "checkout-api"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 8193743,
+    "num": 6469372,
+    "pct": 78.955
+   },
+   "source": "config",
+   "tier": "customer",
+   "volume_tier": "aggregate"
+  }
+ },
+ "edges": [
+  {
+   "calls": 5186,
+   "err": {
+    "den": 5186,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "from": "catalog-api",
+   "kind": "db",
+   "method": "parent_child",
+   "p95_s": 0.009,
+   "per_request": {
+    "den": 4267,
+    "num": 5186,
+    "value": 1.22
+   },
+   "prod": {
+    "calls": 5186,
+    "failed": 0,
+    "p95_s": 0.009
+   },
+   "tier": "sample",
+   "to": "postgres"
+  },
+  {
+   "calls": 2705,
+   "err": {
+    "den": 2705,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "from": "catalog-api",
+   "kind": "cache",
+   "method": "parent_child",
+   "p95_s": 0.001,
+   "per_request": {
+    "den": 4267,
+    "num": 2705,
+    "value": 0.63
+   },
+   "prod": {
+    "calls": 2705,
+    "failed": 0,
+    "p95_s": 0.001
+   },
+   "tier": "sample",
+   "to": "redis"
+  },
+  {
+   "calls": 1777,
+   "err": {
+    "den": 1777,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "from": "checkout-api",
+   "kind": "db",
+   "method": "parent_child",
+   "p95_s": 0.009,
+   "per_request": {
+    "den": 1589,
+    "num": 1777,
+    "value": 1.12
+   },
+   "prod": {
+    "calls": 1777,
+    "failed": 0,
+    "p95_s": 0.009
+   },
+   "tier": "sample",
+   "to": "postgres"
+  },
+  {
+   "calls": 1414,
+   "err": {
+    "den": 1414,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "from": "checkout-api",
+   "kind": "cache",
+   "method": "parent_child",
+   "p95_s": 0.001,
+   "per_request": {
+    "den": 1589,
+    "num": 1414,
+    "value": 0.89
+   },
+   "prod": {
+    "calls": 1414,
+    "failed": 0,
+    "p95_s": 0.001
+   },
+   "tier": "sample",
+   "to": "redis"
+  },
+  {
+   "calls": 363,
+   "err": {
+    "den": 363,
+    "num": 37,
+    "pct": 10.1928
+   },
+   "failed": 37,
+   "failure_known": true,
+   "from": "checkout-api",
+   "kind": "http",
+   "method": "parent_child",
+   "p95_s": 1.11,
+   "per_request": {
+    "den": 1589,
+    "num": 363,
+    "value": 0.23
+   },
+   "prod": {
+    "calls": 363,
+    "failed": 37,
+    "p95_s": 1.11
+   },
+   "tier": "sample",
+   "to": "api.stripe.com"
+  },
+  {
+   "calls": 341,
+   "err": {
+    "den": 341,
+    "num": 30,
+    "pct": 8.7977
+   },
+   "failed": 30,
+   "failure_known": true,
+   "from": "payment-gateway",
+   "kind": "http",
+   "method": "parent_child",
+   "p95_s": 1.08,
+   "per_request": {
+    "den": 1272,
+    "num": 341,
+    "value": 0.27
+   },
+   "prod": {
+    "calls": 341,
+    "failed": 30,
+    "p95_s": 1.08
+   },
+   "tier": "sample",
+   "to": "api.stripe.com"
+  },
+  {
+   "calls": 312,
+   "err": {
+    "den": 312,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "from": "payment-gateway",
+   "kind": "db",
+   "method": "parent_child",
+   "p95_s": 0.009,
+   "per_request": {
+    "den": 1272,
+    "num": 312,
+    "value": 0.25
+   },
+   "prod": {
+    "calls": 312,
+    "failed": 0,
+    "p95_s": 0.009
+   },
+   "tier": "sample",
+   "to": "postgres"
+  }
+ ],
+ "findings": [
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Pull one day of `POST /pay/authorise` failures from the application log and classify them (validation, data, timeout, dependency)"
+    },
+    {
+     "horizon": "now",
+     "text": "Alert when `POST /pay/authorise` fails more than 380 times in an hour (about 2.0× the hourly average in the week to 22 Oct 2026, which is 187), and lower the threshold as the fix lands"
+    },
+    {
+     "horizon": "next",
+     "text": "Track card authorisations against the agreed 99.5 % success target as a Datadog SLO, so the burn rate pages before the target is missed"
+    },
+    {
+     "horizon": "next",
+     "text": "Cache the token in each client of `payment-gateway` until shortly before it expires — that removes at least 708,523 calls in the week to 22 Oct 2026 (the excess over one token per business call) and up to nearly all 1,086,928"
+    }
+   ],
+   "audience": "Shoppers and finance",
+   "bullets": [
+    "**`POST /pay/authorise` fails 31,398 of 348,872 (9.00 %)** in the week to 22 Oct 2026 — about 4,485 a day. Each failure is a user or an operator who has to retry, or work that is not done.",
+    "**`POST /pay/refund` fails 13,290 of 29,533 (45.0 %)** — fewer calls, but the highest failure rate on the service: one in two calls fails.",
+    "The agreed target for card authorisations is 99.5 % success; in the week to 22 Oct 2026 it achieved 91.0 %.",
+    "1,086,928 calls to `POST /oauth/token` for 378,405 calls to `payment-gateway`'s other business operations in the week to 22 Oct 2026 is **2.87 per call**. Tokens are normally cached until they expire; requesting them per call multiplies the load on the token endpoint, and each token request takes up to 89 ms (p95) before the business call can start."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "payments",
+   "horizon": "now",
+   "id": "failing_operations:payment-gateway",
+   "lead": "`payment-gateway` (part of Payments: card authorisation and refunds through the payment provider) handled 1.5 million business requests in the week to 22 Oct 2026 and failed 44,688 of 1,465,333 (3.05 %). They concentrate on two operations:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.servlet.request.hits{service:payment-gateway,resource_name:post_/pay/authorise}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.servlet.request.errors{service:payment-gateway,resource_name:post_/pay/authorise}.as_count()",
+     "failures, as red bars"
+    ]
+   ],
+   "merged": [
+    "call_ratio:payment-gateway"
+   ],
+   "metrics": {
+    "calls": 348872,
+    "failed": 31398,
+    "primary": {
+     "den": 348872,
+     "higher_is_worse": true,
+     "label": "failure rate of POST /pay/authorise",
+     "num": 31398,
+     "subject": [
+      "payment-gateway",
+      "POST /pay/authorise"
+     ],
+     "unit": "pct",
+     "value": 8.9999
+    },
+    "worst_resource": "POST /pay/authorise",
+    "worst_short": "POST /pay/authorise"
+   },
+   "number": 1,
+   "score": 73665.28,
+   "severity": "red",
+   "smaller": "",
+   "subject": {
+    "key": "payment-gateway",
+    "resources": [
+     "POST /pay/authorise",
+     "POST /pay/refund"
+    ],
+    "service": "payment-gateway"
+   },
+   "summary": {
+    "action": "Root-cause the `POST /pay/authorise` failures; alert on regressions; cache tokens until expiry",
+    "finding": "**One in twelve card authorisations fails** on `payment-gateway` (31,398 of 348,872 in the week to 22 Oct 2026); refunds fail 45.0 %; clients request about 2.87 new tokens per business call",
+    "who": "Shoppers and finance"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST /pay/authorise` — card authorisations",
+      "348,872",
+      "**31,398**",
+      "**9.00 %**",
+      "2.66 s"
+     ],
+     [
+      "`POST /pay/refund` — refunds",
+      "29,533",
+      "**13,290**",
+      "**45.0 %**",
+      "2.49 s"
+     ]
+    ]
+   },
+   "tier": "customer",
+   "title": "One in twelve card authorisations fails on Payment gateway; refunds fail 45.0 %"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Pull one day of `POST /api/checkout` failures from the application log and classify them (validation, data, timeout, dependency)"
+    },
+    {
+     "horizon": "now",
+     "text": "Alert when `POST /api/checkout` fails more than 99 times in an hour (about 2.0× the hourly average in the week to 22 Oct 2026, which is 49), and lower the threshold as the fix lands"
+    },
+    {
+     "horizon": "next",
+     "text": "Track checkouts against the agreed 99.5 % success target as a Datadog SLO, so the burn rate pages before the target is missed"
+    }
+   ],
+   "audience": "Shoppers",
+   "bullets": [
+    "**`POST /api/checkout` fails 8,304 of 395,426 (2.10 %)** in the week to 22 Oct 2026 — about 1,186 a day. Each failure is a user or an operator who has to retry, or work that is not done.",
+    "The agreed target for checkouts is 99.5 % success; in the week to 22 Oct 2026 it achieved 97.9 %."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "shop",
+   "horizon": "now",
+   "id": "failing_operations:checkout-api",
+   "lead": "`checkout-api` (part of Shoppers — web and app: the storefront's catalogue, cart and checkout) handled 1.6 million business requests in the week to 22 Oct 2026 and failed 10,659 of 1,572,828 (0.68 %). The failures concentrate on one operation:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.servlet.request.hits{service:checkout-api,resource_name:post_/api/checkout}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.servlet.request.errors{service:checkout-api,resource_name:post_/api/checkout}.as_count()",
+     "failures, as red bars"
+    ]
+   ],
+   "metrics": {
+    "calls": 395426,
+    "failed": 8304,
+    "primary": {
+     "den": 395426,
+     "higher_is_worse": true,
+     "label": "failure rate of POST /api/checkout",
+     "num": 8304,
+     "subject": [
+      "checkout-api",
+      "POST /api/checkout"
+     ],
+     "unit": "pct",
+     "value": 2.1
+    },
+    "worst_resource": "POST /api/checkout",
+    "worst_short": "POST /api/checkout"
+   },
+   "number": 2,
+   "score": 16608.0,
+   "severity": "red",
+   "smaller": "",
+   "subject": {
+    "key": "checkout-api",
+    "resources": [
+     "POST /api/checkout"
+    ],
+    "service": "checkout-api"
+   },
+   "summary": {
+    "action": "Root-cause the `POST /api/checkout` failures; alert on regressions",
+    "finding": "**One in fifty checkouts fails** on `checkout-api` (8,304 of 395,426 in the week to 22 Oct 2026)",
+    "who": "Shoppers"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST /api/checkout` — checkouts",
+      "395,426",
+      "8,304",
+      "2.10 %",
+      "1.67 s"
+     ]
+    ]
+   },
+   "tier": "customer",
+   "title": "One in fifty checkouts fails on Checkout API"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Turn on the Datadog continuous profiler for `payment-gateway` for a day — it shows wall time by function, including time the traces do not cover"
+    },
+    {
+     "horizon": "later",
+     "text": "Set a latency target for the slow operations of `payment-gateway` (for example p95 under 2.00 s) and track it as an SLO"
+    }
+   ],
+   "audience": "Shoppers and finance",
+   "bullets": [],
+   "detector": "slow_hot_paths",
+   "diagram": "inside:payment-gateway",
+   "domain": "payments",
+   "horizon": "now",
+   "id": "slow_hot_paths:payment-gateway",
+   "lead": "`payment-gateway` (part of Payments: card authorisation and refunds through the payment provider) handled 1.5 million business requests in the week to 22 Oct 2026 with a 3.05 % failure rate overall — but **26 % of that traffic sits on operations whose p95 is above 2.00 s**:",
+   "live_graph": [
+    [
+     "timeseries",
+     "p95:trace.servlet.request{service:payment-gateway}",
+     "add a marker at the threshold"
+    ],
+    [
+     "toplist",
+     "p95:trace.servlet.request{service:payment-gateway} by {resource_name}",
+     "slowest features"
+    ]
+   ],
+   "metrics": {
+    "floor_s": 0.089,
+    "outlier_only": false,
+    "outlier_resources": [],
+    "primary": {
+     "higher_is_worse": true,
+     "label": "share of payment-gateway traffic with p95 above 2.00 s",
+     "subject": "payment-gateway",
+     "unit": "pct",
+     "value": 25.8
+    },
+    "share_3s": 0.0,
+    "share_5s": 0.0,
+    "slow_resources": [
+     "POST /pay/authorise",
+     "POST /pay/refund"
+    ],
+    "worst_resource": null
+   },
+   "number": 3,
+   "score": 378405.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "payment-gateway",
+    "service": "payment-gateway"
+   },
+   "summary": {
+    "action": "Profile the request path; set a latency target",
+    "finding": "**Payment gateway is slow on two of its features** — 26 % of its traffic is on operations with p95 above 2.00 s; the slowest frequent one is `POST /pay/authorise` at 2.66 s",
+    "who": "Shoppers and finance"
+   },
+   "table": {
+    "columns": [
+     "Feature",
+     "Calls (week to 22 Oct 2026)",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST /pay/authorise` — card authorisations",
+      "348,872",
+      "2.66 s"
+     ],
+     [
+      "`POST /pay/refund` — refunds",
+      "29,533",
+      "2.49 s"
+     ]
+    ]
+   },
+   "tier": "customer",
+   "title": "Payment gateway is slow on two of its features"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Profile `GET /api/search` on `catalog-api` (query plan, downstream calls) to bring it under its agreed 2.00 s p95"
+    }
+   ],
+   "audience": "Shoppers",
+   "bullets": [
+    "`GET /api/search` is the costliest: 880,758 calls at 4.39 s p95 — each call keeps a user waiting.",
+    "The agreed p95 target for product searches is 2.00 s; it runs at 4.39 s on `catalog-api`."
+   ],
+   "detector": "slow_operations",
+   "diagram": null,
+   "domain": "shop",
+   "horizon": "now",
+   "id": "slow_operations:shop",
+   "lead": "Most of what `catalog-api` serves is quick, but one frequent operation is slow in the week to 22 Oct 2026:",
+   "live_graph": [
+    [
+     "timeseries",
+     "p95:trace.servlet.request{service:catalog-api}",
+     "add a marker at the threshold"
+    ],
+    [
+     "toplist",
+     "p95:trace.servlet.request{service:catalog-api} by {resource_name}",
+     "slowest features"
+    ]
+   ],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "p95 of GET /api/search",
+     "subject": [
+      "catalog-api",
+      "GET /api/search"
+     ],
+     "unit": "s",
+     "value": 4.386
+    },
+    "worst_resource": "GET /api/search",
+    "worst_service": "catalog-api",
+    "worst_short": "GET /api/search"
+   },
+   "number": 4,
+   "score": 88075.8,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "shop",
+    "resources": [
+     "GET /api/search"
+    ],
+    "service": "catalog-api",
+    "services": [
+     "catalog-api"
+    ]
+   },
+   "summary": {
+    "action": "Tune the slow queries and downstream calls",
+    "finding": "**One slow operation in Shoppers — web and app** — `GET /api/search` takes 4.39 s at p95 on 880,758 calls in the week to 22 Oct 2026",
+    "who": "Shoppers"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`GET /api/search` — product searches",
+      "880,758",
+      "4.39 s"
+     ]
+    ]
+   },
+   "tier": "customer",
+   "title": "One slow operation in Shoppers — web and app: `GET /api/search` (product searches) takes 4.39 s at p95"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Add a failure-rate monitor on `notify-worker` — it has no monitor today — and alert when `send_email` fails more than 37 times in an hour (about 2.0× the hourly average in the week to 22 Oct 2026, which is 18), and lower the threshold as the fix lands"
+    },
+    {
+     "horizon": "now",
+     "text": "Pull one day of `send_email` failures from the application log and classify them (validation, data, timeout, dependency)"
+    }
+   ],
+   "audience": "Shoppers",
+   "bullets": [
+    "**`send_email` fails 3,108 of 259,038 (1.20 %)** in the week to 22 Oct 2026 — about 444 a day. Each failure is a user or an operator who has to retry, or work that is not done.",
+    "**No monitor watches `notify-worker`**, so none of these failures pages anyone."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "comms",
+   "horizon": "now",
+   "id": "failing_operations:notify-worker",
+   "lead": "`notify-worker` (part of Customer communications: order and shipping e-mails) handled 259,038 business requests in the week to 22 Oct 2026 and failed 3,108 of 259,038 (1.20 %). All of them are on its one operation:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.servlet.request.hits{service:notify-worker,resource_name:send_email}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.servlet.request.errors{service:notify-worker,resource_name:send_email}.as_count()",
+     "failures, as red bars"
+    ]
+   ],
+   "metrics": {
+    "calls": 259038,
+    "failed": 3108,
+    "primary": {
+     "den": 259038,
+     "higher_is_worse": true,
+     "label": "failure rate of send_email",
+     "num": 3108,
+     "subject": [
+      "notify-worker",
+      "send_email"
+     ],
+     "unit": "pct",
+     "value": 1.1998
+    },
+    "worst_resource": "send_email",
+    "worst_short": "send_email"
+   },
+   "number": 5,
+   "score": 3108.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "notify-worker",
+    "resources": [
+     "send_email"
+    ],
+    "service": "notify-worker"
+   },
+   "summary": {
+    "action": "Root-cause the `send_email` failures; alert on regressions",
+    "finding": "**1.20 % of `send_email` calls fail** on `notify-worker` (3,108 of 259,038 in the week to 22 Oct 2026); it has **no monitors**",
+    "who": "Shoppers"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`send_email`",
+      "259,038",
+      "3,108",
+      "1.20 %",
+      "746 ms"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "1.20 % of `send_email` calls fail on Notifications, and nothing is watching it"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Add failure-rate and latency monitors to `catalog-api`"
+    },
+    {
+     "horizon": "later",
+     "text": "Agree SLOs for the customer-facing services and review them monthly"
+    },
+    {
+     "horizon": "next",
+     "text": "Ingestion hygiene: exclude scanner traffic"
+    }
+   ],
+   "audience": "Everyone who operates the estate",
+   "bullets": [],
+   "detector": "foundations",
+   "diagram": null,
+   "domain": "",
+   "horizon": "now",
+   "id": "foundations:estate",
+   "lead": "Three gaps in how the estate is instrumented and tagged. Not one of them hurts a user today; each makes the next incident longer.",
+   "live_graph": [],
+   "metrics": {
+    "checkable": [
+     "env",
+     "framework",
+     "integration",
+     "monitors",
+     "scanner",
+     "slos"
+    ],
+    "gaps": [
+     "monitors",
+     "scanner",
+     "slos"
+    ],
+    "primary": {
+     "higher_is_worse": true,
+     "label": "foundation gaps",
+     "subject": "estate",
+     "tier": "estate",
+     "unit": "count",
+     "value": 3
+    }
+   },
+   "number": 6,
+   "score": 300.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "estate",
+    "service": null
+   },
+   "summary": {
+    "action": "Monitors on every service, SLOs and ingestion hygiene",
+    "finding": "**Observability foundations are thin** — Monitors on 2 of 4 services; no SLOs; scanner traffic in APM",
+    "who": "Everyone who operates the estate"
+   },
+   "table": {
+    "columns": [
+     "Gap",
+     "Evidence",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "Monitors on 2 of 4 services",
+      "none on `catalog-api` and `notify-worker`",
+      "a service can fail silently"
+     ],
+     [
+      "No SLOs",
+      "the SLOs column is empty for every service",
+      "no shared definition of \"good enough\""
+     ],
+     [
+      "Scanner traffic in APM",
+      "4 of 7 endpoints on `checkout-api` are probes",
+      "noise in the endpoint catalogue and error rates"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "Observability foundations are thin"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Drop scanner traffic at the edge (WAF or IP allow-list) and exclude it from APM error monitors"
+    }
+   ],
+   "audience": "Shoppers",
+   "bullets": [
+    "No sensitive path answered, so this is hygiene: noise in the endpoint catalogue and in the error rate."
+   ],
+   "detector": "scanner_exposure",
+   "diagram": null,
+   "domain": "shop",
+   "horizon": "now",
+   "id": "scanner_exposure:checkout-api",
+   "lead": "4 of `checkout-api`'s 7 endpoints in Datadog are scanner probes (141 requests in the week to 22 Oct 2026): `GET /.env`, `PROPFIND /`, `GET /wp-login.php` and `GET /manager/html`.",
+   "live_graph": [],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "scanner probe requests on checkout-api",
+     "subject": "checkout-api",
+     "tier": "aggregate",
+     "unit": "count",
+     "value": 141
+    }
+   },
+   "number": 7,
+   "score": 141.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "checkout-api",
+    "service": "checkout-api"
+   },
+   "summary": {
+    "action": "Block scanner traffic at the edge",
+    "finding": "**Vulnerability scans reach `checkout-api`** (4 probe endpoints, none answered)",
+    "who": "Security"
+   },
+   "table": {
+    "columns": [
+     "Probe",
+     "Requests",
+     "Failure rate",
+     "Result"
+    ],
+    "rows": [
+     [
+      "`GET /.env`",
+      "57",
+      "100 %",
+      "failed (no status code in the export)"
+     ],
+     [
+      "`PROPFIND /`",
+      "35",
+      "100 %",
+      "failed (no status code in the export)"
+     ],
+     [
+      "`GET /wp-login.php`",
+      "30",
+      "100 %",
+      "failed (no status code in the export)"
+     ],
+     [
+      "`GET /manager/html`",
+      "19",
+      "100 %",
+      "failed (no status code in the export)"
+     ]
+    ]
+   },
+   "tier": "customer",
+   "title": "Vulnerability scans reach Checkout API"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Agree a timeout and a p95 target for `legacy-erp.acme.internal` with its owner"
+    }
+   ],
+   "audience": "Users and staff, depending on the caller",
+   "bullets": [
+    "Slow but answering: `legacy-erp.acme.internal` p95 3.10 s.",
+    "Also failing, below the 15 % dependency bar: `api.stripe.com` 8.10 % (42,120 of 520,000 calls; callers `checkout-api` and `payment-gateway`).",
+    "Callers come from the span sample (parent/child span join); the dependency's page in APM › Software Catalog shows the full picture."
+   ],
+   "detector": "failing_dependencies",
+   "diagram": "dependencies",
+   "domain": "",
+   "horizon": "now",
+   "id": "failing_dependencies:estate",
+   "lead": "Datadog infers these services from outbound calls. In the Services-list export, about 6 days:",
+   "live_graph": [
+    [
+     "note",
+     "open APM › Software Catalog › `legacy-erp.acme.internal` › Dependencies for the callers and the live error rate (peer-tag metrics are not exposed on trace.* metrics)",
+     ""
+    ]
+   ],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "p95 of legacy-erp.acme.internal",
+     "subject": "legacy-erp.acme.internal",
+     "unit": "s",
+     "value": 3.1
+    },
+    "subject_host": "legacy-erp.acme.internal"
+   },
+   "number": 8,
+   "score": 29.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "host_severity": {
+     "legacy-erp.acme.internal": "amber"
+    },
+    "hosts": [
+     "legacy-erp.acme.internal"
+    ],
+    "key": "estate",
+    "service": null
+   },
+   "summary": {
+    "action": "Agree a timeout and a latency target",
+    "finding": "**One dependency is slow** — `legacy-erp.acme.internal` p95 3.10 s",
+    "who": "Users and staff, depending on the caller"
+   },
+   "table": {
+    "columns": [
+     "Dependency",
+     "Calls",
+     "Failed",
+     "p95",
+     "Callers"
+    ],
+    "rows": [
+     [
+      "`legacy-erp.acme.internal`",
+      "1,440",
+      "2.01 %",
+      "**3.10 s**",
+      "none in the sample"
+     ],
+     [
+      "`api.stripe.com`",
+      "520,000",
+      "8.10 % (42,120)",
+      "520 ms",
+      "`checkout-api`, `payment-gateway`"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "One dependency is slow"
+  }
+ ],
+ "healthy": [],
+ "kpis": {
+  "authorise": {
+   "calls": 348872,
+   "critical": true,
+   "err": {
+    "den": 348872,
+    "num": 31398,
+    "pct": 8.9999
+   },
+   "failed": 31398,
+   "failure_known": true,
+   "label": "card authorisations",
+   "match": "^POST /pay/authorise$",
+   "matched": [
+    "POST /pay/authorise"
+   ],
+   "p95_s": 2.66,
+   "service": "^payment-gateway$",
+   "services": [
+    "payment-gateway"
+   ],
+   "slo_p95_s": null,
+   "slo_success_pct": 99.5,
+   "tier": "aggregate"
+  },
+  "checkout": {
+   "calls": 395426,
+   "critical": true,
+   "err": {
+    "den": 395426,
+    "num": 8304,
+    "pct": 2.1
+   },
+   "failed": 8304,
+   "failure_known": true,
+   "label": "checkouts",
+   "match": "^POST /api/checkout$",
+   "matched": [
+    "POST /api/checkout"
+   ],
+   "p95_s": 1.672,
+   "service": "^checkout-api$",
+   "services": [
+    "checkout-api"
+   ],
+   "slo_p95_s": null,
+   "slo_success_pct": 99.5,
+   "tier": "aggregate"
+  },
+  "refund": {
+   "calls": 29533,
+   "critical": false,
+   "err": {
+    "den": 29533,
+    "num": 13290,
+    "pct": 45.0005
+   },
+   "failed": 13290,
+   "failure_known": true,
+   "label": "refunds",
+   "match": "^POST /pay/refund$",
+   "matched": [
+    "POST /pay/refund"
+   ],
+   "p95_s": 2.494,
+   "service": "^payment-gateway$",
+   "services": [
+    "payment-gateway"
+   ],
+   "slo_p95_s": null,
+   "slo_success_pct": null,
+   "tier": "aggregate"
+  },
+  "search": {
+   "calls": 880758,
+   "critical": false,
+   "err": {
+    "den": 880758,
+    "num": 2642,
+    "pct": 0.3
+   },
+   "failed": 2642,
+   "failure_known": true,
+   "label": "product searches",
+   "match": "^GET /api/search$",
+   "matched": [
+    "GET /api/search"
+   ],
+   "p95_s": 4.386,
+   "service": "^catalog-api$",
+   "services": [
+    "catalog-api"
+   ],
+   "slo_p95_s": 2.0,
+   "slo_success_pct": null,
+   "tier": "aggregate"
+  }
+ },
+ "meta": {
+  "aliases": {},
+  "analyst_notes": [
+   "timezone database for 'Europe/London' not available on this machine and org.utc_offset is +00:00 (the drafted default), so times are in UTC — set org.utc_offset to Europe/London's offset (for example '+08:00') or pip install tzdata"
+  ],
+  "as_of": "2026-10-22",
+  "as_of_label": "22 Oct 2026",
+  "config_path": "org.json",
+  "config_sha256": "86f629232374a5b3b868b34551be6ee6bfb912bc81be2f76cc651f321a5fd3fb",
+  "config_text": [
+   "the *Acme [Leadership] — Shop Health at a Glance* dashboard and a pack of 6 monitors"
+  ],
+  "default_integration": [
+   "aiohttp",
+   "axios",
+   "cassandra",
+   "celery-producer",
+   "curl",
+   "derby",
+   "dynamodb",
+   "elasticsearch",
+   "fetch",
+   "grpc-client",
+   "grpc.client",
+   "guzzle",
+   "h2",
+   "hibernate",
+   "http-client",
+   "http.client",
+   "httpclient",
+   "httpx",
+   "jdbc",
+   "jpa",
+   "kafka",
+   "knex",
+   "memcached",
+   "mongo",
+   "mongodb",
+   "mysql",
+   "mysql2",
+   "net/http",
+   "okhttp",
+   "oracle",
+   "pdo",
+   "pg",
+   "postgres",
+   "postgresql",
+   "prisma",
+   "psycopg",
+   "rabbitmq",
+   "redis",
+   "requests",
+   "sequelize",
+   "sns",
+   "spring-data",
+   "sqlite",
+   "sqlserver",
+   "sqs",
+   "undici",
+   "urllib3"
+  ],
+  "empty_inputs": [],
+  "failure_rule": "5xx_or_flag",
+  "findings_count": 8,
+  "inputs": [
+   {
+    "columns": {
+     "error_rate": "Error Rate",
+     "monitors": "Monitor Counts",
+     "p95": "P95 Duration",
+     "request_count": "Request Count",
+     "resource": "Name",
+     "service": "Service"
+    },
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extras": [],
+    "file": "endpoints.csv",
+    "kind": "endpoints",
+    "raw_rows": null,
+    "rows": 15,
+    "sha256": "b7a040a6641475e92c2eb2262a0ea2f1474936b73e8c27ee83f340fa1ccef4b3",
+    "skipped": {},
+    "units": {
+     "error_rate": {
+      "evidence": "all values within 0..1",
+      "unit": "fraction"
+     },
+     "p95": {
+      "evidence": "Endpoints list P95 Duration is seconds (observed)",
+      "unit": "s"
+     }
+    }
+   },
+   {
+    "columns": {
+     "error_rate": "Error Rate",
+     "intg": "Intg",
+     "p95": "p95 Latency (ns)",
+     "request_count": "Requests",
+     "service": "Name",
+     "svc_type": "Type"
+    },
+    "delimiter": "tab",
+    "encoding": "utf-8",
+    "extras": [
+     "favorite"
+    ],
+    "file": "inferred.tsv",
+    "kind": "inferred",
+    "raw_rows": null,
+    "rows": 5,
+    "sha256": "e94d8cfae2461a35ede8ff78b0d5a79d972f9cbfe8ef566cf318e591e6fb4fc5",
+    "skipped": {},
+    "units": {
+     "error_rate": {
+      "evidence": "all values within 0..1",
+      "unit": "fraction"
+     },
+     "p95": {
+      "evidence": "unit from the column header",
+      "unit": "ns"
+     }
+    }
+   },
+   {
+    "columns": {
+     "envs": "Envs",
+     "error_rate": "Error Rate",
+     "monitors": "Monitors",
+     "p95": "p95 Latency (ns)",
+     "request_count": "Requests",
+     "service": "Name",
+     "slos": "SLOS",
+     "svc_type": "Type"
+    },
+    "delimiter": "tab",
+    "encoding": "utf-8",
+    "extras": [
+     "favorite",
+     "Health",
+     "Last Deploy"
+    ],
+    "file": "services.tsv",
+    "kind": "services",
+    "raw_rows": null,
+    "rows": 4,
+    "sha256": "8712397bbc296631e9d71437cedf8f31bfc65320a6aeca36ee65572426ee79c1",
+    "skipped": {},
+    "units": {
+     "error_rate": {
+      "evidence": "all values within 0..1",
+      "unit": "fraction"
+     },
+     "p95": {
+      "evidence": "unit from the column header",
+      "unit": "ns"
+     }
+    }
+   },
+   {
+    "columns": {
+     "duration": "Duration",
+     "env": "Env",
+     "host": "Host",
+     "method": "Method",
+     "operation": "Operation Name",
+     "parent_id": "Parent ID",
+     "resource": "Resource",
+     "service": "Service",
+     "span_id": "Span ID",
+     "status": "Status Code",
+     "trace_id": "Trace ID",
+     "ts": "Date",
+     "type": "Type"
+    },
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extras": [],
+    "file": "spans-2026-10-22.csv",
+    "kind": "spans",
+    "raw_rows": 19450,
+    "rows": 19450,
+    "sha256": "0c6b387ef83408ad51a353e5a778aa38739decb9497523e589c9f68eccb52b0b",
+    "skipped": {
+     "empty_service": 0,
+     "overlap_duplicate": 0,
+     "repeated_span_id": 0,
+     "unreadable_duration": 0,
+     "unreadable_timestamp": 0
+    },
+    "units": {
+     "duration": {
+      "evidence": "human-readable durations ('1.23 ms')",
+      "inferred": false,
+      "low_confidence": false,
+      "unit": "text"
+     }
+    }
+   }
+  ],
+  "internal_domains_guess": [],
+  "kit_version": "1.0.0",
+  "landscape_folded_hosts": [],
+  "ledger": [
+   "0",
+   "0.13",
+   "0.2",
+   "0.25",
+   "0.27",
+   "0.3",
+   "0.30",
+   "0.68",
+   "0.7",
+   "0.87",
+   "1",
+   "1,086,928",
+   "1,186",
+   "1,440",
+   "1,465,333",
+   "1,572,828",
+   "1,774,569",
+   "1.0",
+   "1.20",
+   "1.3",
+   "1.5",
+   "1.6",
+   "1.67",
+   "10,659",
+   "100",
+   "10659",
+   "1086928",
+   "1186",
+   "12",
+   "13,290",
+   "13290",
+   "14",
+   "141",
+   "1440",
+   "1465333",
+   "15",
+   "1572828",
+   "1774569",
+   "18",
+   "187",
+   "19",
+   "19,450",
+   "19450",
+   "2",
+   "2.0",
+   "2.00",
+   "2.01",
+   "2.10",
+   "2.49",
+   "2.66",
+   "2.87",
+   "201,600",
+   "201600",
+   "259,038",
+   "259038",
+   "26",
+   "28",
+   "29,533",
+   "29533",
+   "3",
+   "3,108",
+   "3.000",
+   "3.05",
+   "3.10",
+   "30",
+   "300",
+   "31,398",
+   "3108",
+   "31398",
+   "348,872",
+   "348872",
+   "35",
+   "37",
+   "378,405",
+   "378405",
+   "380",
+   "395,426",
+   "395426",
+   "4",
+   "4,485",
+   "4,694,803",
+   "4.39",
+   "403,200",
+   "403200",
+   "42,120",
+   "42120",
+   "44,688",
+   "444",
+   "44688",
+   "4485",
+   "45.0",
+   "4694803",
+   "49",
+   "490",
+   "5",
+   "50",
+   "520",
+   "520,000",
+   "520000",
+   "57",
+   "6",
+   "6,066,031",
+   "6,469,372",
+   "6066031",
+   "6469372",
+   "7",
+   "708,523",
+   "708523",
+   "746",
+   "8",
+   "8,304",
+   "8.10",
+   "8.2",
+   "80",
+   "8304",
+   "880,758",
+   "880758",
+   "89",
+   "9",
+   "9.00",
+   "91.0",
+   "95",
+   "97.9",
+   "99",
+   "99.5"
+  ],
+  "month": "October 2026",
+  "month_key": "2026-10",
+  "org": "Acme Retail",
+  "org_short": "acme-retail",
+  "previous_reason": "none",
+  "schema_version": 1,
+  "thresholds": {
+   "burst_concentration_pct": 60.0,
+   "by_design_err_pct": 99.0,
+   "by_design_min_calls": 100,
+   "cache_per_request": 10.0,
+   "catalog_tag_pct": 50.0,
+   "client_error_min_calls": 1000,
+   "client_error_share_pct": 20.0,
+   "db_per_request": 10.0,
+   "dep_dead_min_calls": 20,
+   "dep_dead_pct": 99.5,
+   "dep_fail_pct": 15.0,
+   "dep_min_calls": 50,
+   "dep_red_calls": 500,
+   "dep_slow_min_calls": 1000,
+   "dep_slow_s": 3.0,
+   "egress_red_calls": 10000,
+   "fail_amber_pct": 1.0,
+   "fail_red_count": 1000,
+   "fail_red_pct": 5.0,
+   "fixed_delay_floor_s": 1.0,
+   "fixed_delay_share_pct": 80.0,
+   "framework_share_pct": 30.0,
+   "http_per_request": 5.0,
+   "min_calls_per_day": 70,
+   "min_calls_sample": 50,
+   "min_entry_spans_for_anatomy": 200,
+   "mom_min_failures": 10,
+   "mom_p95_floor_ms": 200,
+   "mom_p95_pct": 20.0,
+   "mom_rate_pt": 0.5,
+   "mom_rate_z": 2.0,
+   "mom_rel_pct": 10.0,
+   "mom_volume_pct": 30.0,
+   "monitors_min_share_pct": 1.0,
+   "node_gap_pct": 30.0,
+   "node_idle_share_pct": 5.0,
+   "noise_min_failed": 100,
+   "noise_share_pct": 50.0,
+   "nonprod_env_share_pct": 0.5,
+   "outlier_min_calls": 1000,
+   "outlier_p95_s": 10.0,
+   "paired_tolerance_pct": 2.0,
+   "regression_err_x": 2.0,
+   "regression_p95_pct": 50.0,
+   "repeat_child_per_entry": 5.0,
+   "scanner_min_hits": 100,
+   "scanner_share_pct": 30.0,
+   "secret_reads_per_request": 0.1,
+   "slow_op_min_calls": 100,
+   "slow_op_s": 3.0,
+   "slow_p95_s": 2.0,
+   "slow_share_amber_pct": 20.0,
+   "slow_share_red_pct": 50.0,
+   "slow_without_children_pct": 50.0,
+   "token_ratio": 1.0,
+   "token_red_p95_s": 0.1,
+   "token_red_ratio": 2.0
+  },
+  "timezone": "UTC",
+  "timezone_guess": "UTC",
+  "utc_offset_guess": "+00:00",
+  "warnings": []
+ },
+ "node_groups": {},
+ "noise": {
+  "by_class": {
+   "health": {
+    "failed": 0,
+    "requests": 403200,
+    "resources": 2
+   },
+   "scanner": {
+    "failed": 141,
+    "requests": 141,
+    "resources": 4
+   }
+  },
+  "by_design_candidates": [],
+  "rules_applied": [
+   {
+    "class": "health",
+    "failed": 0,
+    "requests": 403200,
+    "resources": 2,
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "services": [
+     "catalog-api",
+     "checkout-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 57,
+    "requests": 57,
+    "resources": 1,
+    "rule": "builtin:scanner:(?i)\\.env$",
+    "services": [
+     "checkout-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 35,
+    "requests": 35,
+    "resources": 1,
+    "rule": "builtin:scanner:^(PROPFIND|MKCOL|TRACE|TRACK|BADMETHOD|BADMTHD|DEBUG)( |$)",
+    "services": [
+     "checkout-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 30,
+    "requests": 30,
+    "resources": 1,
+    "rule": "builtin:scanner:(?i)wp-(admin|login|content|includes|json)",
+    "services": [
+     "checkout-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 19,
+    "requests": 19,
+    "resources": 1,
+    "rule": "builtin:scanner:(?i)^((GET|HEAD|POST) )?/manager/(status|html|text)",
+    "services": [
+     "checkout-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   }
+  ]
+ },
+ "ratios": [
+  {
+   "denominator": {
+    "calls": 378405,
+    "match": "the service's other business operations",
+    "service": "payment-gateway"
+   },
+   "expect_max": 1.0,
+   "label": "token requests per business call on payment-gateway",
+   "numerator": {
+    "calls": 1086928,
+    "match": "POST /oauth/token",
+    "service": "payment-gateway"
+   },
+   "source": "auto",
+   "tier": "aggregate",
+   "token_p95_s": 0.089,
+   "token_resources": [
+    "POST /oauth/token"
+   ],
+   "value": {
+    "den": 378405,
+    "num": 1086928,
+    "value": 2.87
+   }
+  }
+ ],
+ "resources": {
+  "catalog-api": [
+   {
+    "calls": 2993336,
+    "class": "business",
+    "err": {
+     "den": 2993336,
+     "num": 2993,
+     "pct": 0.1
+    },
+    "failed": 2993,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": "servlet.request",
+    "p95_s": 0.83,
+    "p95_source": "endpoints",
+    "redacted": "GET /api/products/{id}",
+    "resource": "GET /api/products/{id}",
+    "rule": "",
+    "sample": {
+     "calls": 2705,
+     "capped": false,
+     "err": {
+      "den": 2705,
+      "num": 4,
+      "pct": 0.1479
+     },
+     "failed": 4,
+     "n": 2705,
+     "p50_s": 0.36,
+     "p95_ci_s": [
+      0.794,
+      0.858
+     ],
+     "p95_s": 0.827,
+     "signal": 2705
+    },
+    "short": "GET /api/products/{id}",
+    "source": "both",
+    "status_mix": {
+     "2xx": 2701,
+     "5xx": 4
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 2993336,
+     "failed": 2993,
+     "p95_s": 0.83
+    }
+   },
+   {
+    "calls": 880758,
+    "class": "business",
+    "err": {
+     "den": 880758,
+     "num": 2642,
+     "pct": 0.3
+    },
+    "failed": 2642,
+    "failure_known": true,
+    "kpi": "search",
+    "kpi_label": "product searches",
+    "monitors": 0,
+    "operation": "servlet.request",
+    "p95_s": 4.386,
+    "p95_source": "endpoints",
+    "redacted": "GET /api/search",
+    "resource": "GET /api/search",
+    "rule": "",
+    "sample": {
+     "calls": 827,
+     "capped": false,
+     "err": {
+      "den": 827,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 827,
+     "p50_s": 1.67,
+     "p95_ci_s": [
+      4.04,
+      4.64
+     ],
+     "p95_s": 4.39,
+     "signal": 827
+    },
+    "short": "GET /api/search",
+    "source": "both",
+    "status_mix": {
+     "2xx": 827
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 880758,
+     "failed": 2642,
+     "p95_s": 4.386
+    }
+   },
+   {
+    "calls": 619109,
+    "class": "business",
+    "err": {
+     "den": 619109,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": "servlet.request",
+    "p95_s": 0.918,
+    "p95_source": "endpoints",
+    "redacted": "GET /api/price",
+    "resource": "GET /api/price",
+    "rule": "",
+    "sample": {
+     "calls": 551,
+     "capped": false,
+     "err": {
+      "den": 551,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 551,
+     "p50_s": 0.411,
+     "p95_ci_s": [
+      0.828,
+      1.09
+     ],
+     "p95_s": 0.897,
+     "signal": 551
+    },
+    "short": "GET /api/price",
+    "source": "both",
+    "status_mix": {
+     "2xx": 551
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 619109,
+     "failed": 0,
+     "p95_s": 0.918
+    }
+   },
+   {
+    "calls": 201600,
+    "class": "health",
+    "err": {
+     "den": 201600,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": "servlet.request",
+    "p95_s": 0.004,
+    "p95_source": "endpoints",
+    "redacted": "GET /actuator/health",
+    "resource": "GET /actuator/health",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 184,
+     "capped": false,
+     "err": {
+      "den": 184,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 184,
+     "p50_s": 0.003,
+     "p95_ci_s": [
+      0.003,
+      0.004
+     ],
+     "p95_s": 0.004,
+     "signal": 184
+    },
+    "short": "GET /actuator/health",
+    "source": "both",
+    "status_mix": {
+     "2xx": 184
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 201600,
+     "failed": 0,
+     "p95_s": 0.004
+    }
+   }
+  ],
+  "checkout-api": [
+   {
+    "calls": 1177402,
+    "class": "business",
+    "err": {
+     "den": 1177402,
+     "num": 2355,
+     "pct": 0.2
+    },
+    "failed": 2355,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 2,
+    "operation": "servlet.request",
+    "p95_s": 0.234,
+    "p95_source": "endpoints",
+    "redacted": "GET /api/cart/{id}",
+    "resource": "GET /api/cart/{id}",
+    "rule": "",
+    "sample": {
+     "calls": 1051,
+     "capped": false,
+     "err": {
+      "den": 1051,
+      "num": 4,
+      "pct": 0.3806
+     },
+     "failed": 4,
+     "n": 1051,
+     "p50_s": 0.125,
+     "p95_ci_s": [
+      0.224,
+      0.247
+     ],
+     "p95_s": 0.239,
+     "signal": 1051
+    },
+    "short": "GET /api/cart/{id}",
+    "source": "both",
+    "status_mix": {
+     "2xx": 1047,
+     "5xx": 4
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 1177402,
+     "failed": 2355,
+     "p95_s": 0.234
+    }
+   },
+   {
+    "calls": 395426,
+    "class": "business",
+    "err": {
+     "den": 395426,
+     "num": 8304,
+     "pct": 2.1
+    },
+    "failed": 8304,
+    "failure_known": true,
+    "kpi": "checkout",
+    "kpi_label": "checkouts",
+    "monitors": 2,
+    "operation": "servlet.request",
+    "p95_s": 1.672,
+    "p95_source": "endpoints",
+    "redacted": "POST /api/checkout",
+    "resource": "POST /api/checkout",
+    "rule": "",
+    "sample": {
+     "calls": 363,
+     "capped": false,
+     "err": {
+      "den": 363,
+      "num": 8,
+      "pct": 2.2039
+     },
+     "failed": 8,
+     "n": 363,
+     "p50_s": 0.737,
+     "p95_ci_s": [
+      1.42,
+      1.85
+     ],
+     "p95_s": 1.58,
+     "signal": 363
+    },
+    "short": "POST /api/checkout",
+    "source": "both",
+    "status_mix": {
+     "2xx": 355,
+     "5xx": 8
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 395426,
+     "failed": 8304,
+     "p95_s": 1.672
+    }
+   },
+   {
+    "calls": 201600,
+    "class": "health",
+    "err": {
+     "den": 201600,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 2,
+    "operation": "servlet.request",
+    "p95_s": 0.004,
+    "p95_source": "endpoints",
+    "redacted": "GET /actuator/health",
+    "resource": "GET /actuator/health",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 175,
+     "capped": false,
+     "err": {
+      "den": 175,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 175,
+     "p50_s": 0.003,
+     "p95_ci_s": [
+      0.004,
+      0.004
+     ],
+     "p95_s": 0.004,
+     "signal": 175
+    },
+    "short": "GET /actuator/health",
+    "source": "both",
+    "status_mix": {
+     "2xx": 175
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 201600,
+     "failed": 0,
+     "p95_s": 0.004
+    }
+   },
+   {
+    "calls": 57,
+    "class": "scanner",
+    "err": {
+     "den": 57,
+     "num": 57,
+     "pct": 100.0
+    },
+    "failed": 57,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "GET /.env",
+    "resource": "GET /.env",
+    "rule": "builtin:scanner:(?i)\\.env$",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "GET /.env",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 57,
+     "failed": 57,
+     "p95_s": 0.012
+    }
+   },
+   {
+    "calls": 35,
+    "class": "scanner",
+    "err": {
+     "den": 35,
+     "num": 35,
+     "pct": 100.0
+    },
+    "failed": 35,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "PROPFIND /",
+    "resource": "PROPFIND /",
+    "rule": "builtin:scanner:^(PROPFIND|MKCOL|TRACE|TRACK|BADMETHOD|BADMTHD|DEBUG)( |$)",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "PROPFIND /",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 35,
+     "failed": 35,
+     "p95_s": 0.012
+    }
+   },
+   {
+    "calls": 30,
+    "class": "scanner",
+    "err": {
+     "den": 30,
+     "num": 30,
+     "pct": 100.0
+    },
+    "failed": 30,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "GET /wp-login.php",
+    "resource": "GET /wp-login.php",
+    "rule": "builtin:scanner:(?i)wp-(admin|login|content|includes|json)",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "GET /wp-login.php",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 30,
+     "failed": 30,
+     "p95_s": 0.012
+    }
+   },
+   {
+    "calls": 19,
+    "class": "scanner",
+    "err": {
+     "den": 19,
+     "num": 19,
+     "pct": 100.0
+    },
+    "failed": 19,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "GET /manager/html",
+    "resource": "GET /manager/html",
+    "rule": "builtin:scanner:(?i)^((GET|HEAD|POST) )?/manager/(status|html|text)",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "GET /manager/html",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 19,
+     "failed": 19,
+     "p95_s": 0.012
+    }
+   }
+  ],
+  "notify-worker": [
+   {
+    "calls": 259038,
+    "class": "business",
+    "err": {
+     "den": 259038,
+     "num": 3108,
+     "pct": 1.1998
+    },
+    "failed": 3108,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": "servlet.request",
+    "p95_s": 0.746,
+    "p95_source": "endpoints",
+    "redacted": "send_email",
+    "resource": "send_email",
+    "rule": "",
+    "sample": {
+     "calls": 224,
+     "capped": false,
+     "err": {
+      "den": 224,
+      "num": 2,
+      "pct": 0.8929
+     },
+     "failed": 2,
+     "n": 224,
+     "p50_s": 0.203,
+     "p95_ci_s": [
+      0.568,
+      0.855
+     ],
+     "p95_s": 0.652,
+     "signal": 224
+    },
+    "short": "send_email",
+    "source": "both",
+    "status_mix": {
+     "2xx": 222,
+     "5xx": 2
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 259038,
+     "failed": 3108,
+     "p95_s": 0.746
+    }
+   }
+  ],
+  "payment-gateway": [
+   {
+    "calls": 1086928,
+    "class": "business",
+    "err": {
+     "den": 1086928,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 1,
+    "operation": "servlet.request",
+    "p95_s": 0.089,
+    "p95_source": "endpoints",
+    "redacted": "POST /oauth/token",
+    "resource": "POST /oauth/token",
+    "rule": "",
+    "sample": {
+     "calls": 931,
+     "capped": false,
+     "err": {
+      "den": 931,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 931,
+     "p50_s": 0.054,
+     "p95_ci_s": [
+      0.085,
+      0.092
+     ],
+     "p95_s": 0.09,
+     "signal": 931
+    },
+    "short": "POST /oauth/token",
+    "source": "both",
+    "status_mix": {
+     "2xx": 931
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 1086928,
+     "failed": 0,
+     "p95_s": 0.089
+    }
+   },
+   {
+    "calls": 348872,
+    "class": "business",
+    "err": {
+     "den": 348872,
+     "num": 31398,
+     "pct": 8.9999
+    },
+    "failed": 31398,
+    "failure_known": true,
+    "kpi": "authorise",
+    "kpi_label": "card authorisations",
+    "monitors": 1,
+    "operation": "servlet.request",
+    "p95_s": 2.66,
+    "p95_source": "endpoints",
+    "redacted": "POST /pay/authorise",
+    "resource": "POST /pay/authorise",
+    "rule": "",
+    "sample": {
+     "calls": 312,
+     "capped": false,
+     "err": {
+      "den": 312,
+      "num": 27,
+      "pct": 8.6538
+     },
+     "failed": 27,
+     "n": 312,
+     "p50_s": 1.08,
+     "p95_ci_s": [
+      2.26,
+      3.06
+     ],
+     "p95_s": 2.54,
+     "signal": 312
+    },
+    "short": "POST /pay/authorise",
+    "source": "both",
+    "status_mix": {
+     "2xx": 285,
+     "5xx": 27
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 348872,
+     "failed": 31398,
+     "p95_s": 2.66
+    }
+   },
+   {
+    "calls": 29533,
+    "class": "business",
+    "err": {
+     "den": 29533,
+     "num": 13290,
+     "pct": 45.0005
+    },
+    "failed": 13290,
+    "failure_known": true,
+    "kpi": "refund",
+    "kpi_label": "refunds",
+    "monitors": 1,
+    "operation": "servlet.request",
+    "p95_s": 2.494,
+    "p95_source": "endpoints",
+    "redacted": "POST /pay/refund",
+    "resource": "POST /pay/refund",
+    "rule": "",
+    "sample": {
+     "calls": 29,
+     "capped": false,
+     "err": {
+      "den": 29,
+      "num": 14,
+      "pct": 48.2759
+     },
+     "failed": 14,
+     "n": 29,
+     "p50_s": 0.958,
+     "p95_ci_s": [
+      1.42,
+      2.41
+     ],
+     "p95_s": 1.64,
+     "signal": 29
+    },
+    "short": "POST /pay/refund",
+    "source": "both",
+    "status_mix": {
+     "2xx": 15,
+     "5xx": 14
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 29533,
+     "failed": 13290,
+     "p95_s": 2.494
+    }
+   }
+  ]
+ },
+ "services": {
+  "api.stripe.com": {
+   "business_endpoints": 0,
+   "display": "api.stripe.com",
+   "domain": "",
+   "endpoints": 0,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    },
+    "business": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    }
+   },
+   "err_base": {
+    "all": 0,
+    "business": 0
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 0,
+    "business": 0
+   },
+   "failure_known": false,
+   "hosts": [],
+   "list_reason": "markerless",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {},
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": null,
+   "p95_kind": null,
+   "p95_s": null,
+   "p95_source": null,
+   "p95_worst_resource": null,
+   "p95_worst_s": null,
+   "requests": {
+    "all": 0,
+    "business": 0,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "child",
+   "slos": "",
+   "spans": {
+    "entry": 0,
+    "failed": 67,
+    "framework_rows": 0,
+    "rows": 704,
+    "with_signal": 704
+   },
+   "spans_without_entries": 704,
+   "status_mix": {},
+   "tech": "",
+   "tier": "internal",
+   "type": "",
+   "unmarked_spans": 704,
+   "versions": []
+  },
+  "catalog-api": {
+   "business_endpoints": 3,
+   "display": "Catalog API",
+   "domain": "shop",
+   "endpoints": 4,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 4694803,
+     "num": 5635,
+     "pct": 0.12
+    },
+    "business": {
+     "den": 4493203,
+     "num": 5635,
+     "pct": 0.1254
+    }
+   },
+   "err_base": {
+    "all": 4694803,
+    "business": 4493203
+   },
+   "err_services_list": {
+    "den": 4060800,
+    "num": 4926,
+    "pct": 0.1213
+   },
+   "failed": {
+    "all": 5635,
+    "business": 5635
+   },
+   "failure_known": true,
+   "hosts": [
+    "cat-01"
+   ],
+   "list_reason": "probe_listed",
+   "monitor_states": {
+    "0": 0
+   },
+   "monitors": 0,
+   "monitors_known": true,
+   "node_group": null,
+   "noise": {
+    "health": {
+     "calls": 201600,
+     "failed": 0,
+     "resources": 1
+    }
+   },
+   "operation": "servlet.request",
+   "operation_confidence": null,
+   "operation_source": "config",
+   "p95_ci_s": null,
+   "p95_kind": "service",
+   "p95_s": 4.386,
+   "p95_source": "services_list",
+   "p95_worst_resource": "GET /api/search",
+   "p95_worst_s": 4.386,
+   "requests": {
+    "all": 4694803,
+    "business": 4493203,
+    "tier": "aggregate"
+   },
+   "requests_services_list": 4060800,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 4267,
+    "failed": 4,
+    "framework_rows": 0,
+    "rows": 4267,
+    "with_signal": 4267
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 4263,
+    "5xx": 4
+   },
+   "tech": "Java servlet",
+   "tier": "customer",
+   "type": "web",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "checkout-api": {
+   "business_endpoints": 2,
+   "display": "Checkout API",
+   "domain": "shop",
+   "endpoints": 7,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 1774569,
+     "num": 10800,
+     "pct": 0.6086
+    },
+    "business": {
+     "den": 1572828,
+     "num": 10659,
+     "pct": 0.6777
+    }
+   },
+   "err_base": {
+    "all": 1774569,
+    "business": 1572828
+   },
+   "err_services_list": {
+    "den": 1555200,
+    "num": 9331,
+    "pct": 0.6
+   },
+   "failed": {
+    "all": 10800,
+    "business": 10659
+   },
+   "failure_known": true,
+   "hosts": [
+    "chk-01"
+   ],
+   "list_reason": "probe_listed",
+   "monitor_states": {
+    "0": 2
+   },
+   "monitors": 2,
+   "monitors_known": true,
+   "node_group": null,
+   "noise": {
+    "health": {
+     "calls": 201600,
+     "failed": 0,
+     "resources": 1
+    },
+    "scanner": {
+     "calls": 141,
+     "failed": 141,
+     "resources": 4
+    }
+   },
+   "operation": "servlet.request",
+   "operation_confidence": null,
+   "operation_source": "config",
+   "p95_ci_s": null,
+   "p95_kind": "service",
+   "p95_s": 1.672,
+   "p95_source": "services_list",
+   "p95_worst_resource": "POST /api/checkout",
+   "p95_worst_s": 1.672,
+   "requests": {
+    "all": 1774569,
+    "business": 1572828,
+    "tier": "aggregate"
+   },
+   "requests_services_list": 1555200,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 1589,
+    "failed": 12,
+    "framework_rows": 0,
+    "rows": 1589,
+    "with_signal": 1589
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 1577,
+    "5xx": 12
+   },
+   "tech": "Java servlet",
+   "tier": "customer",
+   "type": "web",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "notify-worker": {
+   "business_endpoints": 1,
+   "display": "Notifications",
+   "domain": "comms",
+   "endpoints": 1,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 259038,
+     "num": 3108,
+     "pct": 1.1998
+    },
+    "business": {
+     "den": 259038,
+     "num": 3108,
+     "pct": 1.1998
+    }
+   },
+   "err_base": {
+    "all": 259038,
+    "business": 259038
+   },
+   "err_services_list": {
+    "den": 216000,
+    "num": 2592,
+    "pct": 1.2
+   },
+   "failed": {
+    "all": 3108,
+    "business": 3108
+   },
+   "failure_known": true,
+   "hosts": [
+    "ntf-01"
+   ],
+   "list_reason": "probe_listed",
+   "monitor_states": {
+    "0": 0
+   },
+   "monitors": 0,
+   "monitors_known": true,
+   "node_group": null,
+   "noise": {},
+   "operation": "servlet.request",
+   "operation_confidence": null,
+   "operation_source": "config",
+   "p95_ci_s": null,
+   "p95_kind": "service",
+   "p95_s": 0.746,
+   "p95_source": "services_list",
+   "p95_worst_resource": "send_email",
+   "p95_worst_s": 0.746,
+   "requests": {
+    "all": 259038,
+    "business": 259038,
+    "tier": "aggregate"
+   },
+   "requests_services_list": 216000,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 224,
+    "failed": 2,
+    "framework_rows": 0,
+    "rows": 224,
+    "with_signal": 224
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 222,
+    "5xx": 2
+   },
+   "tech": "Java servlet",
+   "tier": "staff",
+   "type": "web",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "payment-gateway": {
+   "business_endpoints": 3,
+   "display": "Payment gateway",
+   "domain": "payments",
+   "endpoints": 3,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 1465333,
+     "num": 44688,
+     "pct": 3.0497
+    },
+    "business": {
+     "den": 1465333,
+     "num": 44688,
+     "pct": 3.0497
+    }
+   },
+   "err_base": {
+    "all": 1465333,
+    "business": 1465333
+   },
+   "err_services_list": {
+    "den": 1278720,
+    "num": 38879,
+    "pct": 3.0405
+   },
+   "failed": {
+    "all": 44688,
+    "business": 44688
+   },
+   "failure_known": true,
+   "hosts": [
+    "pay-01"
+   ],
+   "list_reason": "probe_listed",
+   "monitor_states": {
+    "0": 1
+   },
+   "monitors": 1,
+   "monitors_known": true,
+   "node_group": null,
+   "noise": {},
+   "operation": "servlet.request",
+   "operation_confidence": null,
+   "operation_source": "config",
+   "p95_ci_s": null,
+   "p95_kind": "service",
+   "p95_s": 2.66,
+   "p95_source": "services_list",
+   "p95_worst_resource": "POST /pay/authorise",
+   "p95_worst_s": 2.66,
+   "requests": {
+    "all": 1465333,
+    "business": 1465333,
+    "tier": "aggregate"
+   },
+   "requests_services_list": 1278720,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 1272,
+    "failed": 41,
+    "framework_rows": 0,
+    "rows": 1272,
+    "with_signal": 1272
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 1231,
+    "5xx": 41
+   },
+   "tech": "Java servlet",
+   "tier": "customer",
+   "type": "web",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "postgres": {
+   "business_endpoints": 0,
+   "display": "postgres",
+   "domain": "",
+   "endpoints": 0,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    },
+    "business": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    }
+   },
+   "err_base": {
+    "all": 0,
+    "business": 0
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 0,
+    "business": 0
+   },
+   "failure_known": false,
+   "hosts": [],
+   "list_reason": "markerless",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {},
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": null,
+   "p95_kind": null,
+   "p95_s": null,
+   "p95_source": null,
+   "p95_worst_resource": null,
+   "p95_worst_s": null,
+   "requests": {
+    "all": 0,
+    "business": 0,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "integration",
+   "slos": "",
+   "spans": {
+    "entry": 0,
+    "failed": 0,
+    "framework_rows": 0,
+    "rows": 7275,
+    "with_signal": 0
+   },
+   "spans_without_entries": 7275,
+   "status_mix": {},
+   "tech": "",
+   "tier": "internal",
+   "type": "",
+   "unmarked_spans": 7275,
+   "versions": []
+  },
+  "redis": {
+   "business_endpoints": 0,
+   "display": "redis",
+   "domain": "",
+   "endpoints": 0,
+   "envs": "prod",
+   "err": {
+    "all": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    },
+    "business": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    }
+   },
+   "err_base": {
+    "all": 0,
+    "business": 0
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 0,
+    "business": 0
+   },
+   "failure_known": false,
+   "hosts": [],
+   "list_reason": "markerless",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {},
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": null,
+   "p95_kind": null,
+   "p95_s": null,
+   "p95_source": null,
+   "p95_worst_resource": null,
+   "p95_worst_s": null,
+   "requests": {
+    "all": 0,
+    "business": 0,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "integration",
+   "slos": "",
+   "spans": {
+    "entry": 0,
+    "failed": 0,
+    "framework_rows": 0,
+    "rows": 4119,
+    "with_signal": 0
+   },
+   "spans_without_entries": 4119,
+   "status_mix": {},
+   "tech": "",
+   "tier": "internal",
+   "type": "",
+   "unmarked_spans": 4119,
+   "versions": []
+  }
+ },
+ "tables": {},
+ "totals": {
+  "business_failed": 64090,
+  "business_requests": 7790402,
+  "dependencies": 5,
+  "domains": 3,
+  "endpoints": 15,
+  "err": {
+   "den": 8193743,
+   "num": 64231,
+   "pct": 0.7839
+  },
+  "err_business": {
+   "den": 7790402,
+   "num": 64090,
+   "pct": 0.8227
+  },
+  "failed": 64231,
+  "noise_requests": 403341,
+  "requests": 8193743,
+  "services_all": 7,
+  "services_counted": 4,
+  "services_entry": 4,
+  "services_inferred": 5,
+  "services_sample_only": [],
+  "span_rows": 19450,
+  "tier": "aggregate",
+  "traces": 7352
+ },
+ "window": {
+  "aggregate": {
+   "candidates": {
+    "1": 2,
+    "14": 2,
+    "2": 0,
+    "28": 2,
+    "3": 0,
+    "30": 0,
+    "5": 2,
+    "7": 2
+   },
+   "confidence": "consistent_not_unique",
+   "days": 7,
+   "proof": [
+    {
+     "implied_interval_s": 3.0,
+     "period_s": 3,
+     "probers": 1,
+     "requests": 201600,
+     "resource": "GET /actuator/health",
+     "service": "catalog-api"
+    },
+    {
+     "implied_interval_s": 3.0,
+     "period_s": 3,
+     "probers": 1,
+     "requests": 201600,
+     "resource": "GET /actuator/health",
+     "service": "checkout-api"
+    }
+   ],
+   "source": "asserted",
+   "tied": [
+    7,
+    14,
+    28
+   ],
+   "tier": "aggregate"
+  },
+  "per_day_allowed": true,
+  "phrase": {
+   "aggregate": "in the week to 22 Oct 2026",
+   "sample": "in the 9-minute sample",
+   "sample_long": "in the 9-minute sample (22 Oct 02:00–02:09 UTC)",
+   "services_list": "in the Services-list export, about 6 days",
+   "volumes": "in the week to 22 Oct 2026"
+  },
+  "services_list": {
+   "days_estimate": 6.082,
+   "note": "the Services list covers a different range than the Endpoints list; the two are never divided into one ratio",
+   "ratio_vs_endpoints": 0.869
+  },
+  "spans": {
+   "capped": false,
+   "end_local": "2026-10-22 02:09:02",
+   "end_utc": "2026-10-22T02:09:02.285000+00:00",
+   "files": [
+    {
+     "capped": false,
+     "end_local": "2026-10-22 02:09:02",
+     "end_utc": "2026-10-22T02:09:02.285000+00:00",
+     "file": "spans-2026-10-22.csv",
+     "minutes_text": "9",
+     "raw_rows": 19450,
+     "rows": 19450,
+     "start_local": "2026-10-22 02:00:00",
+     "start_utc": "2026-10-22T02:00:00.126000+00:00"
+    }
+   ],
+   "minutes": 9.0,
+   "minutes_text": "9",
+   "phrase": "in the 9-minute sample",
+   "phrase_long": "in the 9-minute sample (22 Oct 02:00–02:09 UTC)",
+   "rows": 19450,
+   "start_local": "2026-10-22 02:00:00",
+   "start_utc": "2026-10-22T02:00:00.126000+00:00",
+   "tier": "sample",
+   "tz": "UTC",
+   "when": "22 Oct 02:00–02:09 UTC",
+   "windows": [
+    {
+     "end_utc": "2026-10-22T02:09:02.285000+00:00",
+     "minutes": 9.0,
+     "start_utc": "2026-10-22T02:00:00.126000+00:00"
+    }
+   ]
+  },
+  "volumes_tier": "aggregate"
+ }
+}

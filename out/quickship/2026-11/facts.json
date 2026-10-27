@@ -1,0 +1,1166 @@
+{
+ "also_noted": [],
+ "anatomy": {
+  "shipping-api": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 1937,
+   "entry_latency_ms": {
+    "p25": 116.0,
+    "p50": 176.9,
+    "p75": 325.4,
+    "p95": 2980.0,
+    "p99": 5860.0
+   },
+   "framework_share": {
+    "den": 2237,
+    "num": 0,
+    "pct": 0.0
+   },
+   "minutes": 10.0,
+   "repeated_children": [],
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "slow_without_children": null,
+   "tier": "sample",
+   "traces": 0
+  },
+  "tracking-api": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 3698,
+   "entry_latency_ms": {
+    "p25": 71.4,
+    "p50": 99.6,
+    "p75": 139.2,
+    "p95": 221.8,
+    "p99": 315.7
+   },
+   "framework_share": {
+    "den": 3997,
+    "num": 0,
+    "pct": 0.0
+   },
+   "minutes": 10.0,
+   "repeated_children": [],
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "slow_without_children": null,
+   "tier": "sample",
+   "traces": 0
+  }
+ },
+ "catalog": null,
+ "caveats": [
+  "without Parent ID, Type or Operation Name in the spans export, outbound HTTP calls that carry the calling service's name cannot be told apart from incoming requests; request totals may include some outbound calls",
+  "services were grouped by name, not by business domain"
+ ],
+ "coverage": {
+  "capabilities": {
+   "catalog": false,
+   "dependencies": "none",
+   "env": false,
+   "inferred_list": false,
+   "operation_names": false,
+   "request_anatomy": false,
+   "services_list": false,
+   "status_codes": true,
+   "trace_tree_columns": false,
+   "weekly_volumes": false
+  },
+  "child_spans_present": false,
+  "columns": {
+   "env": false,
+   "error": false,
+   "host": false,
+   "operation": false,
+   "parent_id": false,
+   "peer": false,
+   "span_id": false,
+   "status": true,
+   "trace_id": false,
+   "ts": true,
+   "type": false,
+   "version": false
+  },
+  "detectors_run": [
+   "failing_operations",
+   "slow_hot_paths",
+   "slow_operations",
+   "nonprod_from_prod",
+   "noise_masks_signal",
+   "node_imbalance",
+   "call_ratio",
+   "scanner_exposure",
+   "client_errors",
+   "foundations"
+  ],
+  "detectors_skipped": [
+   {
+    "label": "failing dependencies",
+    "name": "failing_dependencies",
+    "reason": "needs caller data",
+    "unlock": "add Parent ID or peer.service to the spans export, or export the inferred services list"
+   },
+   {
+    "label": "work inside a request",
+    "name": "chatty_requests",
+    "reason": "needs child spans with their parents",
+    "unlock": "add Trace ID, Span ID and Parent ID to the spans export"
+   },
+   {
+    "label": "public egress and telemetry",
+    "name": "egress_and_telemetry",
+    "reason": "needs caller data",
+    "unlock": "add Parent ID or peer.service to the spans export, or export the inferred services list"
+   },
+   {
+    "label": "regressions since last month",
+    "name": "traffic_shift",
+    "reason": "needs last month's review",
+    "unlock": "no earlier month's review was found for this organisation; next month's review compares itself with this one"
+   }
+  ],
+  "entry_rule": "method or a VERB /path resource present, and the service is neither an integration library nor a host name",
+  "env_scope": {
+   "column": false,
+   "export_is_nonprod": false,
+   "mixed_services": [],
+   "nonprod_services": [],
+   "production_services": [
+    "shipping-api",
+    "tracking-api"
+   ],
+   "unknown_services": []
+  },
+  "failure_signal": true,
+  "graph_method": "none",
+  "host_visibility": false,
+  "inputs": {
+   "catalog": false,
+   "endpoints": false,
+   "inferred": false,
+   "services": false,
+   "spans": true
+  },
+  "monitors_known": false,
+  "unlock_hints": [
+   "export APM › Software Catalog › Endpoints (7 days) to get complete weekly volumes and per-endpoint failure counts",
+   "export APM › Software Catalog › Services to get monitor and SLO coverage, env tags and service-level p95",
+   "export the Services list with inferred services shown to get the hosts your services call (dependency health, non-prod and public egress)",
+   "add Trace ID, Span ID and Parent ID columns to the spans export to get the request-anatomy diagram and caller attribution",
+   "add the Operation Name column to the spans export so live-graph recipes carry the exact trace.OPERATION metric name",
+   "add Env to the spans export to confirm production scope",
+   "dependencies could not be drawn: add Parent ID or peer.service to the spans export, or export the inferred services list"
+  ],
+  "volumes_tier": "sample"
+ },
+ "dependencies": {},
+ "domains": {
+  "shipping-api": {
+   "audience": "Users",
+   "counted_services": [
+    "shipping-api"
+   ],
+   "description": "",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 2237,
+     "num": 42,
+     "pct": 1.8775
+    },
+    "business": {
+     "den": 1937,
+     "num": 42,
+     "pct": 2.1683
+    }
+   },
+   "failed": {
+    "all": 42,
+    "business": 42
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "🧩",
+   "label": "Shipping API",
+   "noise_share_of_failed": {
+    "den": 42,
+    "num": 0,
+    "pct": 0.0
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    2.98,
+    2.98
+   ],
+   "requests": {
+    "all": 2237,
+    "business": 1937
+   },
+   "sample_only_services": [],
+   "services": [
+    "shipping-api"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 6234,
+    "num": 2237,
+    "pct": 35.8839
+   },
+   "source": "auto",
+   "tier": "staff",
+   "volume_tier": "sample"
+  },
+  "tracking-api": {
+   "audience": "Users",
+   "counted_services": [
+    "tracking-api"
+   ],
+   "description": "",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 3997,
+     "num": 3,
+     "pct": 0.0751
+    },
+    "business": {
+     "den": 3698,
+     "num": 3,
+     "pct": 0.0811
+    }
+   },
+   "failed": {
+    "all": 3,
+    "business": 3
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "🧩",
+   "label": "Tracking API",
+   "noise_share_of_failed": {
+    "den": 3,
+    "num": 0,
+    "pct": 0.0
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    0.222,
+    0.222
+   ],
+   "requests": {
+    "all": 3997,
+    "business": 3698
+   },
+   "sample_only_services": [],
+   "services": [
+    "tracking-api"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 6234,
+    "num": 3997,
+    "pct": 64.1161
+   },
+   "source": "auto",
+   "tier": "staff",
+   "volume_tier": "sample"
+  }
+ },
+ "edges": [],
+ "findings": [
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Profile `POST /v1/labels` on `shipping-api` (query plan, downstream calls) and set a p95 target"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "`POST /v1/labels` is the costliest: 397 calls at 5.86 s p95 — each call keeps someone waiting."
+   ],
+   "detector": "slow_operations",
+   "diagram": null,
+   "domain": "shipping-api",
+   "horizon": "now",
+   "id": "slow_operations:shipping-api",
+   "lead": "Most of what `shipping-api` serves is quick, but one frequent operation is slow in the 10-minute sample:",
+   "live_graph": [
+    [
+     "timeseries",
+     "p95:trace.OPERATION{service:shipping-api}",
+     "add a marker at the threshold; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:shipping-api"
+    ],
+    [
+     "toplist",
+     "p95:trace.OPERATION{service:shipping-api} by {resource_name}",
+     "slowest features"
+    ]
+   ],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "p95 of POST /v1/labels",
+     "subject": [
+      "shipping-api",
+      "POST /v1/labels"
+     ],
+     "unit": "s",
+     "value": 5.86
+    },
+    "worst_resource": "POST /v1/labels",
+    "worst_service": "shipping-api",
+    "worst_short": "POST /v1/labels"
+   },
+   "number": 1,
+   "score": 39.7,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "shipping-api",
+    "resources": [
+     "POST /v1/labels"
+    ],
+    "service": "shipping-api",
+    "services": [
+     "shipping-api"
+    ]
+   },
+   "summary": {
+    "action": "Tune the slow queries and downstream calls",
+    "finding": "**One slow operation in Shipping API** — `POST /v1/labels` takes 5.86 s at p95 on 397 calls in the 10-minute sample",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST /v1/labels`",
+      "397",
+      "5.86 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "One slow operation in Shipping API: `POST /v1/labels` takes 5.86 s at p95"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Pull one day of `POST /v1/labels` failures from the application log and classify them (validation, data, timeout, dependency)"
+    },
+    {
+     "horizon": "now",
+     "text": "Alert on the `trace.*.errors` metric for `POST /v1/labels` once a week of trace data is available, with the threshold at twice the observed hourly average"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "**`POST /v1/labels` fails 32 of 397 (8.06 %)** in the 10-minute sample. Each failure is a user or an operator who has to retry, or work that is not done."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "shipping-api",
+   "horizon": "now",
+   "id": "failing_operations:shipping-api",
+   "lead": "`shipping-api` handled 1,937 business requests in the 10-minute sample and failed 42 of 1,937 (2.17 %). The failures concentrate on one operation:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.OPERATION.hits{service:shipping-api,resource_name:post_/v1/labels}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.OPERATION.errors{service:shipping-api,resource_name:post_/v1/labels}.as_count()",
+     "failures, as red bars; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:shipping-api"
+    ]
+   ],
+   "metrics": {
+    "calls": 397,
+    "failed": 32,
+    "primary": {
+     "den": 397,
+     "higher_is_worse": true,
+     "label": "failure rate of POST /v1/labels",
+     "num": 32,
+     "subject": [
+      "shipping-api",
+      "POST /v1/labels"
+     ],
+     "unit": "pct",
+     "value": 8.0605
+    },
+    "worst_resource": "POST /v1/labels",
+    "worst_short": "POST /v1/labels"
+   },
+   "number": 2,
+   "score": 32.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "shipping-api",
+    "resources": [
+     "POST /v1/labels"
+    ],
+    "service": "shipping-api"
+   },
+   "summary": {
+    "action": "Root-cause the `POST /v1/labels` failures; alert on regressions",
+    "finding": "**One in twelve `POST /v1/labels` calls fails** on `shipping-api` (32 of 397 in the 10-minute sample)",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST /v1/labels`",
+      "397",
+      "**32**",
+      "**8.06 %**",
+      "5.86 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "One in twelve `POST /v1/labels` calls fails on `shipping-api`"
+  }
+ ],
+ "healthy": [
+  {
+   "audience": "Users",
+   "domain": "tracking-api",
+   "icon": "🧩",
+   "label": "Tracking API",
+   "sentence": "Tracking API — healthy: 3,698 business requests in the 10-minute sample, 0.081 % failed, p95 222 ms",
+   "status": "healthy"
+  }
+ ],
+ "kpis": {},
+ "meta": {
+  "aliases": {},
+  "analyst_notes": [
+   "no domains configured — run `init` and name the domains, audiences and tiers",
+   "no earlier month's facts.json was found under <--out>/quickship/ — if this is not the first review, pass --previous PATH",
+   "live-graph recipes still need the operation name for shipping-api, tracking-api — add the Operation Name column to the spans export or set services.operations"
+  ],
+  "as_of": "2026-11-19",
+  "as_of_label": "19 Nov 2026",
+  "config_path": null,
+  "config_sha256": null,
+  "config_text": [],
+  "default_integration": [
+   "aiohttp",
+   "axios",
+   "cassandra",
+   "celery-producer",
+   "curl",
+   "derby",
+   "dynamodb",
+   "elasticsearch",
+   "fetch",
+   "grpc-client",
+   "grpc.client",
+   "guzzle",
+   "h2",
+   "hibernate",
+   "http-client",
+   "http.client",
+   "httpclient",
+   "httpx",
+   "jdbc",
+   "jpa",
+   "kafka",
+   "knex",
+   "memcached",
+   "mongo",
+   "mongodb",
+   "mysql",
+   "mysql2",
+   "net/http",
+   "okhttp",
+   "oracle",
+   "pdo",
+   "pg",
+   "postgres",
+   "postgresql",
+   "prisma",
+   "psycopg",
+   "rabbitmq",
+   "redis",
+   "requests",
+   "sequelize",
+   "sns",
+   "spring-data",
+   "sqlite",
+   "sqlserver",
+   "sqs",
+   "undici",
+   "urllib3"
+  ],
+  "empty_inputs": [],
+  "failure_rule": "5xx_or_flag",
+  "findings_count": 2,
+  "inputs": [
+   {
+    "columns": {
+     "duration": "Duration",
+     "method": "Method",
+     "resource": "Resource",
+     "service": "Service",
+     "status": "Status Code",
+     "ts": "Date"
+    },
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extras": [],
+    "file": "spans-2026-11-19.csv",
+    "kind": "spans",
+    "raw_rows": 6234,
+    "rows": 6234,
+    "sha256": "79e0eeae240b000dfeb23b8e57648e3a2141255cae55f0e68bda76eb7a694edb",
+    "skipped": {
+     "empty_service": 0,
+     "overlap_duplicate": 0,
+     "repeated_span_id": 0,
+     "unreadable_duration": 0,
+     "unreadable_timestamp": 0
+    },
+    "units": {
+     "duration": {
+      "evidence": "human-readable durations ('1.23 ms')",
+      "inferred": false,
+      "low_confidence": false,
+      "unit": "text"
+     }
+    }
+   }
+  ],
+  "internal_domains_guess": [],
+  "kit_version": "1.0.0",
+  "landscape_folded_hosts": [],
+  "ledger": [
+   "0",
+   "0.075",
+   "0.081",
+   "1",
+   "1,937",
+   "1.0",
+   "1.88",
+   "10",
+   "12",
+   "1937",
+   "2",
+   "2,237",
+   "2.17",
+   "2.98",
+   "222",
+   "2237",
+   "3,698",
+   "3,997",
+   "32",
+   "3698",
+   "397",
+   "3997",
+   "42",
+   "5",
+   "5.86",
+   "50",
+   "599",
+   "6,234",
+   "6234",
+   "8.06"
+  ],
+  "month": "November 2026",
+  "month_key": "2026-11",
+  "org": "quickship",
+  "org_short": "quickship",
+  "previous_reason": "not_found",
+  "schema_version": 1,
+  "thresholds": {
+   "burst_concentration_pct": 60.0,
+   "by_design_err_pct": 99.0,
+   "by_design_min_calls": 100,
+   "cache_per_request": 10.0,
+   "catalog_tag_pct": 50.0,
+   "client_error_min_calls": 1000,
+   "client_error_share_pct": 20.0,
+   "db_per_request": 10.0,
+   "dep_dead_min_calls": 20,
+   "dep_dead_pct": 99.5,
+   "dep_fail_pct": 15.0,
+   "dep_min_calls": 50,
+   "dep_red_calls": 500,
+   "dep_slow_min_calls": 1000,
+   "dep_slow_s": 3.0,
+   "egress_red_calls": 10000,
+   "fail_amber_pct": 1.0,
+   "fail_red_count": 1000,
+   "fail_red_pct": 5.0,
+   "fixed_delay_floor_s": 1.0,
+   "fixed_delay_share_pct": 80.0,
+   "framework_share_pct": 30.0,
+   "http_per_request": 5.0,
+   "min_calls_per_day": 70,
+   "min_calls_sample": 50,
+   "min_entry_spans_for_anatomy": 200,
+   "mom_min_failures": 10,
+   "mom_p95_floor_ms": 200,
+   "mom_p95_pct": 20.0,
+   "mom_rate_pt": 0.5,
+   "mom_rate_z": 2.0,
+   "mom_rel_pct": 10.0,
+   "mom_volume_pct": 30.0,
+   "monitors_min_share_pct": 1.0,
+   "node_gap_pct": 30.0,
+   "node_idle_share_pct": 5.0,
+   "noise_min_failed": 100,
+   "noise_share_pct": 50.0,
+   "nonprod_env_share_pct": 0.5,
+   "outlier_min_calls": 1000,
+   "outlier_p95_s": 10.0,
+   "paired_tolerance_pct": 2.0,
+   "regression_err_x": 2.0,
+   "regression_p95_pct": 50.0,
+   "repeat_child_per_entry": 5.0,
+   "scanner_min_hits": 100,
+   "scanner_share_pct": 30.0,
+   "secret_reads_per_request": 0.1,
+   "slow_op_min_calls": 100,
+   "slow_op_s": 3.0,
+   "slow_p95_s": 2.0,
+   "slow_share_amber_pct": 20.0,
+   "slow_share_red_pct": 50.0,
+   "slow_without_children_pct": 50.0,
+   "token_ratio": 1.0,
+   "token_red_p95_s": 0.1,
+   "token_red_ratio": 2.0
+  },
+  "timezone": "+00:00",
+  "timezone_guess": "UTC",
+  "utc_offset_guess": "+00:00",
+  "warnings": []
+ },
+ "node_groups": {},
+ "noise": {
+  "by_class": {
+   "health": {
+    "failed": 0,
+    "requests": 599,
+    "resources": 2
+   }
+  },
+  "by_design_candidates": [],
+  "rules_applied": [
+   {
+    "class": "health",
+    "failed": 0,
+    "requests": 599,
+    "resources": 2,
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "services": [
+     "shipping-api",
+     "tracking-api"
+    ],
+    "source": "builtin",
+    "why": ""
+   }
+  ]
+ },
+ "ratios": [],
+ "resources": {
+  "shipping-api": [
+   {
+    "calls": 1540,
+    "class": "business",
+    "err": {
+     "den": 1540,
+     "num": 10,
+     "pct": 0.6494
+    },
+    "failed": 10,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.334,
+    "p95_source": "sample",
+    "redacted": "GET /v1/rates",
+    "resource": "GET /v1/rates",
+    "rule": "",
+    "sample": {
+     "calls": 1540,
+     "capped": false,
+     "err": {
+      "den": 1540,
+      "num": 10,
+      "pct": 0.6494
+     },
+     "failed": 10,
+     "n": 1540,
+     "p50_s": 0.149,
+     "p95_ci_s": [
+      0.319,
+      0.35
+     ],
+     "p95_s": 0.334,
+     "signal": 1540
+    },
+    "short": "GET /v1/rates",
+    "source": "spans",
+    "status_mix": {
+     "2xx": 1530,
+     "5xx": 10
+    },
+    "tier": "sample",
+    "week": null
+   },
+   {
+    "calls": 397,
+    "class": "business",
+    "err": {
+     "den": 397,
+     "num": 32,
+     "pct": 8.0605
+    },
+    "failed": 32,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 5.86,
+    "p95_source": "sample",
+    "redacted": "POST /v1/labels",
+    "resource": "POST /v1/labels",
+    "rule": "",
+    "sample": {
+     "calls": 397,
+     "capped": false,
+     "err": {
+      "den": 397,
+      "num": 32,
+      "pct": 8.0605
+     },
+     "failed": 32,
+     "n": 397,
+     "p50_s": 1.9,
+     "p95_ci_s": [
+      5.0,
+      6.34
+     ],
+     "p95_s": 5.86,
+     "signal": 397
+    },
+    "short": "POST /v1/labels",
+    "source": "spans",
+    "status_mix": {
+     "2xx": 365,
+     "5xx": 32
+    },
+    "tier": "sample",
+    "week": null
+   },
+   {
+    "calls": 300,
+    "class": "health",
+    "err": {
+     "den": 300,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.002,
+    "p95_source": "sample",
+    "redacted": "GET /healthz",
+    "resource": "GET /healthz",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 300,
+     "capped": false,
+     "err": {
+      "den": 300,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 300,
+     "p50_s": 0.002,
+     "p95_ci_s": [
+      0.002,
+      0.002
+     ],
+     "p95_s": 0.002,
+     "signal": 300
+    },
+    "short": "GET /healthz",
+    "source": "spans",
+    "status_mix": {
+     "2xx": 300
+    },
+    "tier": "sample",
+    "week": null
+   }
+  ],
+  "tracking-api": [
+   {
+    "calls": 3698,
+    "class": "business",
+    "err": {
+     "den": 3698,
+     "num": 3,
+     "pct": 0.0811
+    },
+    "failed": 3,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.222,
+    "p95_source": "sample",
+    "redacted": "GET /v1/track/:id",
+    "resource": "GET /v1/track/:id",
+    "rule": "",
+    "sample": {
+     "calls": 3698,
+     "capped": false,
+     "err": {
+      "den": 3698,
+      "num": 3,
+      "pct": 0.0811
+     },
+     "failed": 3,
+     "n": 3698,
+     "p50_s": 0.1,
+     "p95_ci_s": [
+      0.215,
+      0.232
+     ],
+     "p95_s": 0.222,
+     "signal": 3698
+    },
+    "short": "GET /v1/track/:id",
+    "source": "spans",
+    "status_mix": {
+     "2xx": 3695,
+     "5xx": 3
+    },
+    "tier": "sample",
+    "week": null
+   },
+   {
+    "calls": 299,
+    "class": "health",
+    "err": {
+     "den": 299,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.002,
+    "p95_source": "sample",
+    "redacted": "GET /healthz",
+    "resource": "GET /healthz",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 299,
+     "capped": false,
+     "err": {
+      "den": 299,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 299,
+     "p50_s": 0.002,
+     "p95_ci_s": [
+      0.002,
+      0.002
+     ],
+     "p95_s": 0.002,
+     "signal": 299
+    },
+    "short": "GET /healthz",
+    "source": "spans",
+    "status_mix": {
+     "2xx": 299
+    },
+    "tier": "sample",
+    "week": null
+   }
+  ]
+ },
+ "services": {
+  "shipping-api": {
+   "business_endpoints": 2,
+   "display": "shipping-api",
+   "domain": "shipping-api",
+   "endpoints": 3,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 2237,
+     "num": 42,
+     "pct": 1.8775
+    },
+    "business": {
+     "den": 1937,
+     "num": 42,
+     "pct": 2.1683
+    }
+   },
+   "err_base": {
+    "all": 2237,
+    "business": 1937
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 42,
+    "business": 42
+   },
+   "failure_known": true,
+   "hosts": [],
+   "list_reason": "absent",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {
+    "health": {
+     "calls": 300,
+     "failed": 0,
+     "resources": 1
+    }
+   },
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": [
+    2.62,
+    3.29
+   ],
+   "p95_kind": "service",
+   "p95_s": 2.98,
+   "p95_source": "sample (request-weighted over 1,937 entry spans)",
+   "p95_worst_resource": "POST /v1/labels",
+   "p95_worst_s": 5.86,
+   "requests": {
+    "all": 2237,
+    "business": 1937,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 2237,
+    "failed": 42,
+    "framework_rows": 0,
+    "rows": 2237,
+    "with_signal": 2237
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 2195,
+    "5xx": 42
+   },
+   "tech": "",
+   "tier": "staff",
+   "type": "",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "tracking-api": {
+   "business_endpoints": 1,
+   "display": "tracking-api",
+   "domain": "tracking-api",
+   "endpoints": 2,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 3997,
+     "num": 3,
+     "pct": 0.0751
+    },
+    "business": {
+     "den": 3698,
+     "num": 3,
+     "pct": 0.0811
+    }
+   },
+   "err_base": {
+    "all": 3997,
+    "business": 3698
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 3,
+    "business": 3
+   },
+   "failure_known": true,
+   "hosts": [],
+   "list_reason": "absent",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {
+    "health": {
+     "calls": 299,
+     "failed": 0,
+     "resources": 1
+    }
+   },
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": [
+    0.215,
+    0.232
+   ],
+   "p95_kind": "service",
+   "p95_s": 0.222,
+   "p95_source": "sample (request-weighted over 3,698 entry spans)",
+   "p95_worst_resource": "GET /v1/track/:id",
+   "p95_worst_s": 0.222,
+   "requests": {
+    "all": 3997,
+    "business": 3698,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 3997,
+    "failed": 3,
+    "framework_rows": 0,
+    "rows": 3997,
+    "with_signal": 3997
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 3994,
+    "5xx": 3
+   },
+   "tech": "",
+   "tier": "staff",
+   "type": "",
+   "unmarked_spans": 0,
+   "versions": []
+  }
+ },
+ "tables": {},
+ "totals": {
+  "business_failed": 45,
+  "business_requests": 5635,
+  "dependencies": 0,
+  "domains": 2,
+  "endpoints": 5,
+  "err": {
+   "den": 6234,
+   "num": 45,
+   "pct": 0.7218
+  },
+  "err_business": {
+   "den": 5635,
+   "num": 45,
+   "pct": 0.7986
+  },
+  "failed": 45,
+  "noise_requests": 599,
+  "requests": 6234,
+  "services_all": 2,
+  "services_counted": 2,
+  "services_entry": 2,
+  "services_inferred": 0,
+  "services_sample_only": [],
+  "span_rows": 6234,
+  "tier": "sample",
+  "traces": null
+ },
+ "window": {
+  "aggregate": {
+   "candidates": {},
+   "confidence": "none",
+   "days": null,
+   "proof": [],
+   "source": "none",
+   "tied": [],
+   "tier": "aggregate"
+  },
+  "per_day_allowed": false,
+  "phrase": {
+   "aggregate": "",
+   "sample": "in the 10-minute sample",
+   "sample_long": "in the 10-minute sample (19 Nov 14:00–14:09 UTC)",
+   "services_list": "in the Services-list export, range not proved",
+   "volumes": "in the 10-minute sample"
+  },
+  "spans": {
+   "capped": false,
+   "end_local": "2026-11-19 14:09:59",
+   "end_utc": "2026-11-19T14:09:59.967000+00:00",
+   "files": [
+    {
+     "capped": false,
+     "end_local": "2026-11-19 14:09:59",
+     "end_utc": "2026-11-19T14:09:59.967000+00:00",
+     "file": "spans-2026-11-19.csv",
+     "minutes_text": "10",
+     "raw_rows": 6234,
+     "rows": 6234,
+     "start_local": "2026-11-19 14:00:00",
+     "start_utc": "2026-11-19T14:00:00.037000+00:00"
+    }
+   ],
+   "minutes": 10.0,
+   "minutes_text": "10",
+   "phrase": "in the 10-minute sample",
+   "phrase_long": "in the 10-minute sample (19 Nov 14:00–14:09 UTC)",
+   "rows": 6234,
+   "start_local": "2026-11-19 14:00:00",
+   "start_utc": "2026-11-19T14:00:00.037000+00:00",
+   "tier": "sample",
+   "tz": "UTC",
+   "when": "19 Nov 14:00–14:09 UTC",
+   "windows": [
+    {
+     "end_utc": "2026-11-19T14:09:59.967000+00:00",
+     "minutes": 10.0,
+     "start_utc": "2026-11-19T14:00:00.037000+00:00"
+    }
+   ]
+  },
+  "volumes_tier": "sample"
+ }
+}

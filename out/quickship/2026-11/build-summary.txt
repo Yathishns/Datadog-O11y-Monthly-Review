@@ -1,0 +1,15 @@
+ddreview 1.0.0 build summary — quickship · November 2026 · as of 2026-11-19
+
+inputs:
+  spans-2026-11-19.csv: spans · 6,234 rows · sha256 79e0eeae240b
+window: volumes tier sample; no Endpoints list; span sample 10 minutes
+capabilities: status_codes
+findings: amber slow_operations:shipping-api, amber failing_operations:shipping-api
+also noted: 
+healthy: tracking-api (healthy)
+validation: 0 errors, 0 warnings (STRICT: warnings fail the build)
+analyst note: no domains configured — run `init` and name the domains, audiences and tiers
+analyst note: no earlier month's facts.json was found under <--out>/quickship/ — if this is not the first review, pass --previous PATH
+analyst note: live-graph recipes still need the operation name for shipping-api, tracking-api — add the Operation Name column to the spans export or set services.operations
+notebook sha256 1e60e4b2c59428bdcd742d3c1923ba993a0742a8182ca38ac58c402cd614e9e8
+facts sha256 0ec27c5ccbf58467ce8c387d280c449a5d86cf5a898518ffdf9fe8bb83eebec3

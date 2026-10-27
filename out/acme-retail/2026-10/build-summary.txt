@@ -1,0 +1,16 @@
+ddreview 1.0.0 build summary — Acme Retail · October 2026 · as of 2026-10-22
+
+inputs:
+  endpoints.csv: endpoints · 15 rows · sha256 b7a040a66414
+  inferred.tsv: inferred · 5 rows · sha256 e94d8cfae246
+  services.tsv: services · 4 rows · sha256 8712397bbc29
+  spans-2026-10-22.csv: spans · 19,450 rows · sha256 0c6b387ef834
+window: volumes tier aggregate; endpoints window 7 days (asserted); span sample 9 minutes
+capabilities: weekly_volumes, services_list, dependencies, inferred_list, request_anatomy, trace_tree_columns, operation_names, status_codes, env
+findings: red failing_operations:payment-gateway, red failing_operations:checkout-api, amber slow_hot_paths:payment-gateway, amber slow_operations:shop, amber failing_operations:notify-worker, amber foundations:estate, amber scanner_exposure:checkout-api, amber failing_dependencies:estate
+also noted: egress_and_telemetry:estate
+healthy: 
+validation: 0 errors, 0 warnings (STRICT: warnings fail the build)
+analyst note: timezone database for 'Europe/London' not available on this machine and org.utc_offset is +00:00 (the drafted default), so times are in UTC — set org.utc_offset to Europe/London's offset (for example '+08:00') or pip install tzdata
+notebook sha256 bbbd9d7fe2585c47a338bf34d5ad1b1b9b2db1a68716cff111fe85ed41c79e4a
+facts sha256 3827d58e72d830dcf7692a128886225485582c77cae21d86e9c935ef4a6704b6

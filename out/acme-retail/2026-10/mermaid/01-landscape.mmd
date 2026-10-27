@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph B_shop["🛒 Shoppers — web and app"]
+    direction LR
+    S_catalog_api["Catalog API<br/>Java servlet · 4.7 M req"]
+    S_checkout_api["Checkout API<br/>Java servlet · 1.8 M req"]
+    D_postgres[("postgres")]
+    D_redis[("redis")]
+    D_api_stripe_com(["api.stripe.com<br/>8.10 % fail"])
+  end
+  subgraph B_payments["💳 Payments"]
+    direction LR
+    S_payment_gateway["Payment gateway<br/>Java servlet · 1.5 M req"]
+  end
+  subgraph B_comms["✉️ Customer communications"]
+    direction LR
+    S_notify_worker["Notifications<br/>Java servlet · 259 k req"]
+  end
+  D_legacy_erp_acme_internal(["legacy-erp.acme.internal<br/>2.01 % fail · p95 3.10 s"])
+  S_catalog_api --> D_postgres
+  S_checkout_api --> D_postgres
+  S_payment_gateway --> D_postgres
+  S_catalog_api --> D_redis
+  S_checkout_api --> D_redis
+  S_checkout_api --> D_api_stripe_com
+  S_payment_gateway --> D_api_stripe_com
+  style S_catalog_api fill:#fff3cd,stroke:#b8860b,color:#000
+  style S_checkout_api fill:#ffe0e0,stroke:#c62828,color:#000
+  style S_payment_gateway fill:#ffe0e0,stroke:#c62828,color:#000
+  style S_notify_worker fill:#fff3cd,stroke:#b8860b,color:#000
+  style D_legacy_erp_acme_internal fill:#fff3cd,stroke:#b8860b,color:#000

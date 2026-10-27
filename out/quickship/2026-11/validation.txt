@@ -1,0 +1,7 @@
+STRICT: warnings fail the build (0 warnings)
+
+ERRORS:
+none
+
+WARNINGS:
+none

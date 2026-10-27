@@ -1,0 +1,17 @@
+ddreview 1.0.0 build summary — northbank · November 2026 · as of 2026-11-19
+
+inputs:
+  endpoints.csv: endpoints · 12 rows · sha256 d441bca1a9cb
+  spans-2026-11-19.csv: spans · 16,436 rows · sha256 7f4cf66d5ec1
+window: volumes tier aggregate; endpoints window 7 days (ambiguous); span sample 12 minutes
+capabilities: weekly_volumes, status_codes
+findings: red failing_operations:batch-posting-01, amber slow_hot_paths:online-banking-web, amber node_imbalance:Online Banking Web, amber failing_operations:online-banking-web, amber slow_operations:batch-posting, amber foundations:estate, amber scanner_exposure:online-banking-web
+also noted: 
+healthy: 
+validation: 0 errors, 0 warnings (STRICT: warnings fail the build)
+analyst note: no domains configured — run `init` and name the domains, audiences and tiers
+analyst note: set window.days in org.json (or pass --window-days) to the range the Endpoints list was exported over, so per-day figures can be quoted
+analyst note: no earlier month's facts.json was found under <--out>/northbank/ — if this is not the first review, pass --previous PATH
+analyst note: live-graph recipes still need the operation name for batch-posting-01, online-banking-web, online-banking-web-02 — add the Operation Name column to the spans export or set services.operations
+notebook sha256 8303a4c18e21902bb15114afa60dbb5becff4124f93418d7896b9014ea7c8449
+facts sha256 ee1b1c947d427361d01035c37938fac2907a10dea5f4cdee25e687d1f1ef87d8

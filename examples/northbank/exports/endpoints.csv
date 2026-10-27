@@ -1,0 +1,13 @@
+Name,Service,Request Count,Error Rate,P95 Duration,Monitor Counts
+GET Account/Summary,online-banking-web,1795964,0.001500,1.238630,"{""non-synthetics"": {""0"": 3}}"
+POST Payments/Transfer,online-banking-web,246051,0.021000,3.249192,"{""non-synthetics"": {""0"": 3}}"
+GET Statements/Download,online-banking-web,123370,0.004000,31.270383,"{""non-synthetics"": {""0"": 3}}"
+GET health,online-banking-web,120960,0.000000,0.002798,"{""non-synthetics"": {""0"": 3}}"
+GET /manager/status,online-banking-web,3,1.000000,0.012000,"{""non-synthetics"": {}}"
+BADMETHOD /QuAlYs,online-banking-web,40,1.000000,0.012000,"{""non-synthetics"": {}}"
+GET /phpinfo.php,online-banking-web,9,1.000000,0.012000,"{""non-synthetics"": {}}"
+POST Batch/PostLedger,batch-posting-01,39269,0.310000,9.481051,"{""non-synthetics"": {""0"": 0}}"
+POST Batch/Reconcile,batch-posting-01,39584,0.300000,7.762589,"{""non-synthetics"": {""0"": 0}}"
+GET Account/Summary,online-banking-web-02,999208,0.001700,1.368884,"{""non-synthetics"": {""0"": 3}}"
+POST Payments/Transfer,online-banking-web-02,140749,0.024000,3.249192,"{""non-synthetics"": {""0"": 3}}"
+GET health,online-banking-web-02,120960,0.000000,0.002798,"{""non-synthetics"": {""0"": 3}}"

@@ -1,0 +1,2317 @@
+{
+ "also_noted": [],
+ "anatomy": {
+  "batch-posting-01": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 98,
+   "entry_latency_ms": {
+    "p25": 3270.0,
+    "p50": 4530.0,
+    "p75": 6150.0,
+    "p95": 9760.0,
+    "p99": 15840.0
+   },
+   "framework_share": {
+    "den": 98,
+    "num": 0,
+    "pct": 0.0
+   },
+   "minutes": 12.0,
+   "repeated_children": [],
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "slow_without_children": null,
+   "tier": "sample",
+   "traces": 0
+  },
+  "online-banking-web": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 2772,
+   "entry_latency_ms": {
+    "p25": 404.3,
+    "p50": 583.6,
+    "p75": 915.5,
+    "p95": 3320.0,
+    "p99": 16150.0
+   },
+   "framework_share": {
+    "den": 2915,
+    "num": 0,
+    "pct": 0.0
+   },
+   "minutes": 12.0,
+   "repeated_children": [],
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "slow_without_children": null,
+   "tier": "sample",
+   "traces": 0
+  },
+  "online-banking-web-02": {
+   "bimodal": false,
+   "bursts": [],
+   "cache_table_queries": 0,
+   "children_per_request": {},
+   "entries": 1400,
+   "entry_latency_ms": {
+    "p25": 448.6,
+    "p50": 625.4,
+    "p75": 926.6,
+    "p95": 1750.0,
+    "p99": 2790.0
+   },
+   "framework_share": {
+    "den": 1548,
+    "num": 0,
+    "pct": 0.0
+   },
+   "minutes": 12.0,
+   "repeated_children": [],
+   "secret_distinct": 0,
+   "secret_reads": 0,
+   "slow_without_children": null,
+   "tier": "sample",
+   "traces": 0
+  }
+ },
+ "catalog": null,
+ "caveats": [
+  "without Parent ID, Type or Operation Name in the spans export, outbound HTTP calls that carry the calling service's name cannot be told apart from incoming requests; request totals may include some outbound calls",
+  "services were grouped by name, not by business domain",
+  "the health-check cadence fits 7, 14, 28 days equally; 7 days assumed (the standard export range) and no per-day figures are quoted"
+ ],
+ "coverage": {
+  "capabilities": {
+   "catalog": false,
+   "dependencies": "none",
+   "env": false,
+   "inferred_list": false,
+   "operation_names": false,
+   "request_anatomy": false,
+   "services_list": false,
+   "status_codes": true,
+   "trace_tree_columns": false,
+   "weekly_volumes": true
+  },
+  "child_spans_present": true,
+  "columns": {
+   "env": false,
+   "error": false,
+   "host": false,
+   "operation": false,
+   "parent_id": false,
+   "peer": false,
+   "span_id": false,
+   "status": true,
+   "trace_id": false,
+   "ts": true,
+   "type": false,
+   "version": false
+  },
+  "detectors_run": [
+   "failing_operations",
+   "slow_hot_paths",
+   "slow_operations",
+   "nonprod_from_prod",
+   "noise_masks_signal",
+   "node_imbalance",
+   "call_ratio",
+   "scanner_exposure",
+   "client_errors",
+   "foundations"
+  ],
+  "detectors_skipped": [
+   {
+    "label": "failing dependencies",
+    "name": "failing_dependencies",
+    "reason": "needs caller data",
+    "unlock": "add Parent ID or peer.service to the spans export, or export the inferred services list"
+   },
+   {
+    "label": "work inside a request",
+    "name": "chatty_requests",
+    "reason": "needs child spans with their parents",
+    "unlock": "add Trace ID, Span ID and Parent ID to the spans export"
+   },
+   {
+    "label": "public egress and telemetry",
+    "name": "egress_and_telemetry",
+    "reason": "needs caller data",
+    "unlock": "add Parent ID or peer.service to the spans export, or export the inferred services list"
+   },
+   {
+    "label": "regressions since last month",
+    "name": "traffic_shift",
+    "reason": "needs last month's review",
+    "unlock": "no earlier month's review was found for this organisation; next month's review compares itself with this one"
+   }
+  ],
+  "entry_rule": "method or a VERB /path resource present, and the service is neither an integration library nor a host name",
+  "env_scope": {
+   "column": false,
+   "export_is_nonprod": false,
+   "mixed_services": [],
+   "nonprod_services": [],
+   "production_services": [
+    "batch-posting-01",
+    "online-banking-web",
+    "online-banking-web-02"
+   ],
+   "unknown_services": []
+  },
+  "failure_signal": true,
+  "graph_method": "none",
+  "host_visibility": false,
+  "inputs": {
+   "catalog": false,
+   "endpoints": true,
+   "inferred": false,
+   "services": false,
+   "spans": true
+  },
+  "monitors_known": true,
+  "unlock_hints": [
+   "export APM › Software Catalog › Services to get monitor and SLO coverage, env tags and service-level p95",
+   "export the Services list with inferred services shown to get the hosts your services call (dependency health, non-prod and public egress)",
+   "add Trace ID, Span ID and Parent ID columns to the spans export to get the request-anatomy diagram and caller attribution",
+   "add the Operation Name column to the spans export so live-graph recipes carry the exact trace.OPERATION metric name",
+   "add Env to the spans export to confirm production scope",
+   "dependencies could not be drawn: add Parent ID or peer.service to the spans export, or export the inferred services list"
+  ],
+  "volumes_tier": "aggregate"
+ },
+ "dependencies": {
+  "sql-server": {
+   "allowed": false,
+   "callers": [],
+   "calls": 11875,
+   "class": "internal",
+   "err": {
+    "den": 11875,
+    "num": 0,
+    "pct": 0.0
+   },
+   "failed": 0,
+   "failure_known": false,
+   "marker": "",
+   "p95_s": 0.006,
+   "source": "spans",
+   "tier": "sample",
+   "type": ""
+  }
+ },
+ "domains": {
+  "batch-posting": {
+   "audience": "Users",
+   "counted_services": [
+    "batch-posting-01"
+   ],
+   "description": "",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 78853,
+     "num": 24048,
+     "pct": 30.4973
+    },
+    "business": {
+     "den": 78853,
+     "num": 24048,
+     "pct": 30.4973
+    }
+   },
+   "failed": {
+    "all": 24048,
+    "business": 24048
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "🧩",
+   "label": "Batch Posting",
+   "noise_share_of_failed": {
+    "den": 24048,
+    "num": 0,
+    "pct": 0.0
+   },
+   "p95_kind": "worst_endpoint",
+   "p95_range_s": [
+    9.481,
+    9.481
+   ],
+   "requests": {
+    "all": 78853,
+    "business": 78853
+   },
+   "sample_only_services": [],
+   "services": [
+    "batch-posting-01"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 3626167,
+    "num": 78853,
+    "pct": 2.1746
+   },
+   "source": "auto",
+   "tier": "staff",
+   "volume_tier": "aggregate"
+  },
+  "online-banking-web": {
+   "audience": "Users",
+   "counted_services": [
+    "online-banking-web",
+    "online-banking-web-02"
+   ],
+   "description": "",
+   "empty": false,
+   "err": {
+    "all": {
+     "den": 3547314,
+     "num": 13483,
+     "pct": 0.3801
+    },
+    "business": {
+     "den": 3305342,
+     "num": 13431,
+     "pct": 0.4063
+    }
+   },
+   "failed": {
+    "all": 13483,
+    "business": 13431
+   },
+   "failure_base_partial": false,
+   "failure_known": true,
+   "failure_not_recorded": [],
+   "icon": "🧩",
+   "label": "Online Banking Web",
+   "noise_share_of_failed": {
+    "den": 13483,
+    "num": 52,
+    "pct": 0.3857
+   },
+   "p95_kind": "service",
+   "p95_range_s": [
+    1.75,
+    3.32
+   ],
+   "requests": {
+    "all": 3547314,
+    "business": 3305342
+   },
+   "sample_only_services": [],
+   "services": [
+    "online-banking-web",
+    "online-banking-web-02"
+   ],
+   "services_list_only": [],
+   "share": {
+    "den": 3626167,
+    "num": 3547314,
+    "pct": 97.8254
+   },
+   "source": "auto",
+   "tier": "staff",
+   "volume_tier": "aggregate"
+  }
+ },
+ "edges": [],
+ "findings": [
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Add a failure-rate monitor on `batch-posting-01` — it has no monitor today — and alert on the `trace.*.errors` metric for `POST Batch/PostLedger` at about twice its hourly average over the last 7 days (read that average in Datadog's Metrics Explorer; the export range is not proved, so no number is quoted here)"
+    },
+    {
+     "horizon": "now",
+     "text": "Pull one day of `POST Batch/PostLedger` failures from the application log and classify them (validation, data, timeout, dependency)"
+    },
+    {
+     "horizon": "later",
+     "text": "Agree a success-rate SLO for `POST Batch/PostLedger` calls (for example 99.5 % over 28 days) once the baseline is understood"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "**`POST Batch/PostLedger` fails 12,173 of 39,269 (31.0 %)** in the export window to 19 Nov 2026. Each failure is a user or an operator who has to retry, or work that is not done.",
+    "**No monitor watches `batch-posting-01`**, so none of these failures pages anyone."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "batch-posting",
+   "horizon": "now",
+   "id": "failing_operations:batch-posting-01",
+   "lead": "`batch-posting-01` handled 78,853 business requests in the export window to 19 Nov 2026 and failed 24,048 of 78,853 (30.5 %). They concentrate on two operations:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.OPERATION.hits{service:batch-posting-01,resource_name:post_batch/postledger}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.OPERATION.errors{service:batch-posting-01,resource_name:post_batch/postledger}.as_count()",
+     "failures, as red bars; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:batch-posting-01"
+    ]
+   ],
+   "metrics": {
+    "calls": 39269,
+    "failed": 12173,
+    "primary": {
+     "den": 39269,
+     "higher_is_worse": true,
+     "label": "failure rate of POST Batch/PostLedger",
+     "num": 12173,
+     "subject": [
+      "batch-posting-01",
+      "POST Batch/PostLedger"
+     ],
+     "unit": "pct",
+     "value": 30.999
+    },
+    "worst_resource": "POST Batch/PostLedger",
+    "worst_short": "POST Batch/PostLedger"
+   },
+   "number": 1,
+   "score": 24346.0,
+   "severity": "red",
+   "smaller": "",
+   "subject": {
+    "key": "batch-posting-01",
+    "resources": [
+     "POST Batch/PostLedger",
+     "POST Batch/Reconcile"
+    ],
+    "service": "batch-posting-01"
+   },
+   "summary": {
+    "action": "Root-cause the `POST Batch/PostLedger` failures; alert on regressions",
+    "finding": "**One in three `POST Batch/PostLedger` calls fails** on `batch-posting-01` (12,173 of 39,269 in the export window to 19 Nov 2026); `POST Batch/Reconcile` fails 30.0 %; it has **no monitors**",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST Batch/PostLedger`",
+      "39,269",
+      "**12,173**",
+      "**31.0 %**",
+      "9.48 s"
+     ],
+     [
+      "`POST Batch/Reconcile`",
+      "39,584",
+      "**11,875**",
+      "**30.0 %**",
+      "7.76 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "One in three `POST Batch/PostLedger` calls fails on `batch-posting-01`; `POST Batch/Reconcile` fails 30.0 %, and nothing is watching it"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Turn on the Datadog continuous profiler for `online-banking-web` for a day — it shows wall time by function, including time the traces do not cover"
+    },
+    {
+     "horizon": "later",
+     "text": "Set a latency target for the slow operations of `online-banking-web` (for example p95 under 2.00 s) and track it as an SLO"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [],
+   "detector": "slow_hot_paths",
+   "diagram": null,
+   "domain": "online-banking-web",
+   "horizon": "now",
+   "id": "slow_hot_paths:online-banking-web",
+   "lead": "`online-banking-web` answers most of its 2.2 million business requests in the export window to 19 Nov 2026 quickly with a 0.39 % failure rate overall, but **`GET Statements/Download` takes 31 s at p95 on 123,370 calls** (6 % of the traffic):",
+   "live_graph": [
+    [
+     "timeseries",
+     "p95:trace.OPERATION{service:online-banking-web}",
+     "add a marker at the threshold; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:online-banking-web"
+    ],
+    [
+     "toplist",
+     "p95:trace.OPERATION{service:online-banking-web} by {resource_name}",
+     "slowest features"
+    ]
+   ],
+   "merged": [],
+   "metrics": {
+    "floor_s": 1.239,
+    "outlier_only": true,
+    "outlier_resources": [
+     "GET Statements/Download"
+    ],
+    "primary": {
+     "higher_is_worse": true,
+     "label": "p95 of GET Statements/Download",
+     "subject": [
+      "online-banking-web",
+      "GET Statements/Download"
+     ],
+     "unit": "s",
+     "value": 31.27
+    },
+    "share_3s": 17.1,
+    "share_5s": 5.7,
+    "slow_resources": [
+     "POST Payments/Transfer",
+     "GET Statements/Download"
+    ],
+    "worst_resource": "GET Statements/Download"
+   },
+   "number": 2,
+   "score": 369421.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "group": "Online Banking Web",
+    "key": "online-banking-web",
+    "service": "online-banking-web"
+   },
+   "summary": {
+    "action": "Profile the request path; set a latency target",
+    "finding": "**`online-banking-web` has a very slow feature** — `GET Statements/Download` takes 31 s at p95 on 123,370 calls in the export window to 19 Nov 2026",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Feature",
+     "Calls (export window to 19 Nov 2026)",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST Payments/Transfer`",
+      "246,051",
+      "3.25 s"
+     ],
+     [
+      "`GET Statements/Download`",
+      "123,370",
+      "**31 s**"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "`online-banking-web` has a very slow feature: `GET Statements/Download` takes 31 s at p95"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Check the load-balancer pool and weights for `online-banking-web-02`"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [],
+   "detector": "node_imbalance",
+   "diagram": null,
+   "domain": "online-banking-web",
+   "horizon": "now",
+   "id": "node_imbalance:Online Banking Web",
+   "lead": "`online-banking-web-02` handled 1,139,957 business requests against 2,165,385 on the other node in the export window to 19 Nov 2026.",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.OPERATION.hits{service:online-banking-web*} by {service}.as_count()",
+     "requests per node; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:online-banking-web-02"
+    ]
+   ],
+   "metrics": {
+    "primary": {
+     "den": 3305342,
+     "higher_is_worse": true,
+     "label": "traffic gap of online-banking-web-02",
+     "num": 1139957,
+     "subject": "online-banking-web-02",
+     "unit": "pct",
+     "value": 47.3555
+    }
+   },
+   "number": 3,
+   "score": 9782.54,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "group": "Online Banking Web",
+    "key": "Online Banking Web",
+    "service": "online-banking-web-02"
+   },
+   "summary": {
+    "action": "Check the load-balancer pool and weights",
+    "finding": "**Online Banking Web: node `online-banking-web-02` takes 47 % less traffic than its peer**",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Node",
+     "Business requests",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`online-banking-web`",
+      "2,165,385",
+      "0.39 %",
+      "3.32 s"
+     ],
+     [
+      "`online-banking-web-02`",
+      "1,139,957",
+      "0.45 %",
+      "1.75 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "Online Banking Web: node `online-banking-web-02` takes 47 % less traffic than its peer"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "now",
+     "text": "Pull one day of `POST Payments/Transfer` failures from the application log and classify them (validation, data, timeout, dependency)"
+    },
+    {
+     "horizon": "now",
+     "text": "Alert on the `trace.*.errors` metric for `POST Payments/Transfer` at about twice its hourly average over the last 7 days (read that average in Datadog's Metrics Explorer; the export range is not proved, so no number is quoted here)"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "**`POST Payments/Transfer` fails 5,167 of 246,051 (2.10 %)** in the export window to 19 Nov 2026. Each failure is a user or an operator who has to retry, or work that is not done.",
+    "The same picture on the other node of Online Banking Web: `online-banking-web-02` (2.40 %)."
+   ],
+   "detector": "failing_operations",
+   "diagram": null,
+   "domain": "online-banking-web",
+   "horizon": "now",
+   "id": "failing_operations:online-banking-web",
+   "lead": "`online-banking-web` handled 2.2 million business requests in the export window to 19 Nov 2026 and failed 8,354 of 2,165,385 (0.39 %). The failures concentrate on one operation:",
+   "live_graph": [
+    [
+     "timeseries",
+     "sum:trace.OPERATION.hits{service:online-banking-web,resource_name:post_payments/transfer}.as_count()",
+     "requests"
+    ],
+    [
+     "timeseries",
+     "sum:trace.OPERATION.errors{service:online-banking-web,resource_name:post_payments/transfer}.as_count()",
+     "failures, as red bars; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:online-banking-web"
+    ]
+   ],
+   "merged": [],
+   "metrics": {
+    "calls": 246051,
+    "failed": 5167,
+    "primary": {
+     "den": 246051,
+     "higher_is_worse": true,
+     "label": "failure rate of POST Payments/Transfer",
+     "num": 5167,
+     "subject": [
+      "online-banking-web",
+      "POST Payments/Transfer"
+     ],
+     "unit": "pct",
+     "value": 2.1
+    },
+    "worst_resource": "POST Payments/Transfer",
+    "worst_short": "POST Payments/Transfer"
+   },
+   "number": 4,
+   "score": 8545.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "group": "Online Banking Web",
+    "key": "online-banking-web",
+    "nodes": [
+     "online-banking-web",
+     "online-banking-web-02"
+    ],
+    "resources": [
+     "POST Payments/Transfer"
+    ],
+    "service": "online-banking-web"
+   },
+   "summary": {
+    "action": "Root-cause the `POST Payments/Transfer` failures; alert on regressions",
+    "finding": "**One in fifty `POST Payments/Transfer` calls fails** on `online-banking-web` (5,167 of 246,051 in the export window to 19 Nov 2026); also on `online-banking-web-02`",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "Failed",
+     "Failure rate",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST Payments/Transfer`",
+      "246,051",
+      "5,167",
+      "2.10 %",
+      "3.25 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "One in fifty `POST Payments/Transfer` calls fails on `online-banking-web`"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Profile `POST Batch/PostLedger` on `batch-posting-01` (query plan, downstream calls) and set a p95 target"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "`POST Batch/PostLedger` is the costliest: 39,269 calls at 9.48 s p95 — each call keeps someone waiting."
+   ],
+   "detector": "slow_operations",
+   "diagram": null,
+   "domain": "batch-posting",
+   "horizon": "now",
+   "id": "slow_operations:batch-posting",
+   "lead": "Every operation `batch-posting-01` serves is slow in the export window to 19 Nov 2026 — two frequent operations are above 3 s at p95:",
+   "live_graph": [
+    [
+     "timeseries",
+     "p95:trace.OPERATION{service:batch-posting-01}",
+     "add a marker at the threshold; replace OPERATION with the span operation name: Metrics Explorer → type trace. → filter service:batch-posting-01"
+    ],
+    [
+     "toplist",
+     "p95:trace.OPERATION{service:batch-posting-01} by {resource_name}",
+     "slowest features"
+    ]
+   ],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "p95 of POST Batch/PostLedger",
+     "subject": [
+      "batch-posting-01",
+      "POST Batch/PostLedger"
+     ],
+     "unit": "s",
+     "value": 9.481
+    },
+    "worst_resource": "POST Batch/PostLedger",
+    "worst_service": "batch-posting-01",
+    "worst_short": "POST Batch/PostLedger"
+   },
+   "number": 5,
+   "score": 7885.3,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "batch-posting",
+    "resources": [
+     "POST Batch/PostLedger",
+     "POST Batch/Reconcile"
+    ],
+    "service": "batch-posting-01",
+    "services": [
+     "batch-posting-01"
+    ]
+   },
+   "summary": {
+    "action": "Tune the slow queries and downstream calls",
+    "finding": "**Two slow operations in Batch Posting** — the costliest is `POST Batch/PostLedger`, 9.48 s at p95 on 39,269 calls in the export window to 19 Nov 2026",
+    "who": "Users"
+   },
+   "table": {
+    "columns": [
+     "Operation",
+     "Calls",
+     "p95"
+    ],
+    "rows": [
+     [
+      "`POST Batch/PostLedger`",
+      "39,269",
+      "9.48 s"
+     ],
+     [
+      "`POST Batch/Reconcile`",
+      "39,584",
+      "7.76 s"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "Two slow operations in Batch Posting, above 3 s at p95"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Ingestion hygiene: exclude scanner traffic"
+    }
+   ],
+   "audience": "Everyone who operates the estate",
+   "bullets": [],
+   "detector": "foundations",
+   "diagram": null,
+   "domain": "",
+   "horizon": "now",
+   "id": "foundations:estate",
+   "lead": "Two gaps in how the estate is instrumented and tagged. Not one of them hurts a user today; each makes the next incident longer.",
+   "live_graph": [],
+   "metrics": {
+    "checkable": [
+     "framework",
+     "monitors",
+     "scanner"
+    ],
+    "gaps": [
+     "monitors",
+     "scanner"
+    ],
+    "primary": {
+     "higher_is_worse": true,
+     "label": "foundation gaps",
+     "subject": "estate",
+     "tier": "estate",
+     "unit": "count",
+     "value": 2
+    }
+   },
+   "number": 6,
+   "score": 200.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "key": "estate",
+    "service": null
+   },
+   "summary": {
+    "action": "Monitors on every service and ingestion hygiene",
+    "finding": "**Observability foundations are thin** — Monitors on 2 of 3 services; scanner traffic in APM",
+    "who": "Everyone who operates the estate"
+   },
+   "table": {
+    "columns": [
+     "Gap",
+     "Evidence",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "Monitors on 2 of 3 services",
+      "none on `batch-posting-01`",
+      "a service can fail silently"
+     ],
+     [
+      "Scanner traffic in APM",
+      "3 of 7 endpoints on `online-banking-web` are probes",
+      "noise in the endpoint catalogue and error rates"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "Observability foundations are thin"
+  },
+  {
+   "actions": [
+    {
+     "horizon": "next",
+     "text": "Drop scanner traffic at the edge (WAF or IP allow-list) and exclude it from APM error monitors"
+    }
+   ],
+   "audience": "Users",
+   "bullets": [
+    "No sensitive path answered, so this is hygiene: noise in the endpoint catalogue and in the error rate."
+   ],
+   "detector": "scanner_exposure",
+   "diagram": null,
+   "domain": "online-banking-web",
+   "horizon": "now",
+   "id": "scanner_exposure:online-banking-web",
+   "lead": "3 of `online-banking-web`'s 7 endpoints in Datadog are scanner probes (52 requests in the export window to 19 Nov 2026): `BADMETHOD /QuAlYs`, `GET /phpinfo.php` and `GET /manager/status`.",
+   "live_graph": [],
+   "merged": [],
+   "metrics": {
+    "primary": {
+     "higher_is_worse": true,
+     "label": "scanner probe requests on online-banking-web",
+     "subject": "online-banking-web",
+     "tier": "aggregate",
+     "unit": "count",
+     "value": 52
+    }
+   },
+   "number": 7,
+   "score": 52.0,
+   "severity": "amber",
+   "smaller": "",
+   "subject": {
+    "group": "Online Banking Web",
+    "key": "online-banking-web",
+    "service": "online-banking-web"
+   },
+   "summary": {
+    "action": "Block scanner traffic at the edge",
+    "finding": "**Vulnerability scans reach `online-banking-web`** (3 probe endpoints, none answered)",
+    "who": "Security"
+   },
+   "table": {
+    "columns": [
+     "Probe",
+     "Requests",
+     "Failure rate",
+     "Result"
+    ],
+    "rows": [
+     [
+      "`BADMETHOD /QuAlYs`",
+      "40",
+      "100 %",
+      "failed (no status code in the export)"
+     ],
+     [
+      "`GET /phpinfo.php`",
+      "9",
+      "100 %",
+      "failed (no status code in the export)"
+     ],
+     [
+      "`GET /manager/status`",
+      "3",
+      "100 %",
+      "failed (no status code in the export)"
+     ]
+    ]
+   },
+   "tier": "staff",
+   "title": "Vulnerability scans reach `online-banking-web`"
+  }
+ ],
+ "healthy": [],
+ "kpis": {},
+ "meta": {
+  "aliases": {},
+  "analyst_notes": [
+   "no domains configured — run `init` and name the domains, audiences and tiers",
+   "set window.days in org.json (or pass --window-days) to the range the Endpoints list was exported over, so per-day figures can be quoted",
+   "no earlier month's facts.json was found under <--out>/northbank/ — if this is not the first review, pass --previous PATH",
+   "live-graph recipes still need the operation name for batch-posting-01, online-banking-web, online-banking-web-02 — add the Operation Name column to the spans export or set services.operations"
+  ],
+  "as_of": "2026-11-19",
+  "as_of_label": "19 Nov 2026",
+  "config_path": null,
+  "config_sha256": null,
+  "config_text": [],
+  "default_integration": [
+   "aiohttp",
+   "axios",
+   "cassandra",
+   "celery-producer",
+   "curl",
+   "derby",
+   "dynamodb",
+   "elasticsearch",
+   "fetch",
+   "grpc-client",
+   "grpc.client",
+   "guzzle",
+   "h2",
+   "hibernate",
+   "http-client",
+   "http.client",
+   "httpclient",
+   "httpx",
+   "jdbc",
+   "jpa",
+   "kafka",
+   "knex",
+   "memcached",
+   "mongo",
+   "mongodb",
+   "mysql",
+   "mysql2",
+   "net/http",
+   "okhttp",
+   "oracle",
+   "pdo",
+   "pg",
+   "postgres",
+   "postgresql",
+   "prisma",
+   "psycopg",
+   "rabbitmq",
+   "redis",
+   "requests",
+   "sequelize",
+   "sns",
+   "spring-data",
+   "sqlite",
+   "sqlserver",
+   "sqs",
+   "undici",
+   "urllib3"
+  ],
+  "empty_inputs": [],
+  "failure_rule": "5xx_or_flag",
+  "findings_count": 7,
+  "inputs": [
+   {
+    "columns": {
+     "error_rate": "Error Rate",
+     "monitors": "Monitor Counts",
+     "p95": "P95 Duration",
+     "request_count": "Request Count",
+     "resource": "Name",
+     "service": "Service"
+    },
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extras": [],
+    "file": "endpoints.csv",
+    "kind": "endpoints",
+    "raw_rows": null,
+    "rows": 12,
+    "sha256": "d441bca1a9cb454f8e04b3f80ae8a571df1ad8ed4714d5f8c6ebe96b7f91e657",
+    "skipped": {},
+    "units": {
+     "error_rate": {
+      "evidence": "all values within 0..1",
+      "unit": "fraction"
+     },
+     "p95": {
+      "evidence": "Endpoints list P95 Duration is seconds (observed)",
+      "unit": "s"
+     }
+    }
+   },
+   {
+    "columns": {
+     "duration": "Duration",
+     "method": "Method",
+     "resource": "Resource",
+     "service": "Service",
+     "status": "Status Code",
+     "ts": "Date"
+    },
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extras": [],
+    "file": "spans-2026-11-19.csv",
+    "kind": "spans",
+    "raw_rows": 16436,
+    "rows": 16436,
+    "sha256": "7f4cf66d5ec146843e67c9cfd217d0ab8c464af022ce2e6a2633a546b9d54f56",
+    "skipped": {
+     "empty_service": 0,
+     "overlap_duplicate": 0,
+     "repeated_span_id": 0,
+     "unreadable_duration": 0,
+     "unreadable_timestamp": 0
+    },
+    "units": {
+     "duration": {
+      "evidence": "human-readable durations ('1.23 ms')",
+      "inferred": false,
+      "low_confidence": false,
+      "unit": "text"
+     }
+    }
+   }
+  ],
+  "internal_domains_guess": [],
+  "kit_version": "1.0.0",
+  "landscape_folded_hosts": [],
+  "ledger": [
+   "0",
+   "0.38",
+   "0.39",
+   "0.41",
+   "0.45",
+   "02",
+   "1",
+   "1,139,957",
+   "1,260,917",
+   "1.0",
+   "1.1",
+   "1.75",
+   "100",
+   "11,875",
+   "1139957",
+   "11875",
+   "12",
+   "12,173",
+   "12173",
+   "123,370",
+   "123370",
+   "1260917",
+   "14",
+   "14,",
+   "140,749",
+   "140749",
+   "16,436",
+   "16436",
+   "2",
+   "2,165,385",
+   "2,286,397",
+   "2.00",
+   "2.10",
+   "2.2",
+   "2.40",
+   "2165385",
+   "2286397",
+   "24,048",
+   "24048",
+   "241,920",
+   "241920",
+   "246,051",
+   "246051",
+   "28",
+   "3",
+   "3,305,342",
+   "3,378",
+   "3,547,314",
+   "3.25",
+   "3.32",
+   "3.6",
+   "30",
+   "30.0",
+   "30.5",
+   "31",
+   "31.0",
+   "3305342",
+   "3378",
+   "3547314",
+   "39,269",
+   "39,584",
+   "39269",
+   "39584",
+   "40",
+   "47",
+   "5",
+   "5,077",
+   "5,167",
+   "50",
+   "5077",
+   "5167",
+   "52",
+   "6",
+   "7",
+   "7,",
+   "7.76",
+   "78,853",
+   "78853",
+   "8,354",
+   "8354",
+   "9",
+   "9.48",
+   "95"
+  ],
+  "month": "November 2026",
+  "month_key": "2026-11",
+  "org": "northbank",
+  "org_short": "northbank",
+  "previous_reason": "not_found",
+  "schema_version": 1,
+  "thresholds": {
+   "burst_concentration_pct": 60.0,
+   "by_design_err_pct": 99.0,
+   "by_design_min_calls": 100,
+   "cache_per_request": 10.0,
+   "catalog_tag_pct": 50.0,
+   "client_error_min_calls": 1000,
+   "client_error_share_pct": 20.0,
+   "db_per_request": 10.0,
+   "dep_dead_min_calls": 20,
+   "dep_dead_pct": 99.5,
+   "dep_fail_pct": 15.0,
+   "dep_min_calls": 50,
+   "dep_red_calls": 500,
+   "dep_slow_min_calls": 1000,
+   "dep_slow_s": 3.0,
+   "egress_red_calls": 10000,
+   "fail_amber_pct": 1.0,
+   "fail_red_count": 1000,
+   "fail_red_pct": 5.0,
+   "fixed_delay_floor_s": 1.0,
+   "fixed_delay_share_pct": 80.0,
+   "framework_share_pct": 30.0,
+   "http_per_request": 5.0,
+   "min_calls_per_day": 70,
+   "min_calls_sample": 50,
+   "min_entry_spans_for_anatomy": 200,
+   "mom_min_failures": 10,
+   "mom_p95_floor_ms": 200,
+   "mom_p95_pct": 20.0,
+   "mom_rate_pt": 0.5,
+   "mom_rate_z": 2.0,
+   "mom_rel_pct": 10.0,
+   "mom_volume_pct": 30.0,
+   "monitors_min_share_pct": 1.0,
+   "node_gap_pct": 30.0,
+   "node_idle_share_pct": 5.0,
+   "noise_min_failed": 100,
+   "noise_share_pct": 50.0,
+   "nonprod_env_share_pct": 0.5,
+   "outlier_min_calls": 1000,
+   "outlier_p95_s": 10.0,
+   "paired_tolerance_pct": 2.0,
+   "regression_err_x": 2.0,
+   "regression_p95_pct": 50.0,
+   "repeat_child_per_entry": 5.0,
+   "scanner_min_hits": 100,
+   "scanner_share_pct": 30.0,
+   "secret_reads_per_request": 0.1,
+   "slow_op_min_calls": 100,
+   "slow_op_s": 3.0,
+   "slow_p95_s": 2.0,
+   "slow_share_amber_pct": 20.0,
+   "slow_share_red_pct": 50.0,
+   "slow_without_children_pct": 50.0,
+   "token_ratio": 1.0,
+   "token_red_p95_s": 0.1,
+   "token_red_ratio": 2.0
+  },
+  "timezone": "+00:00",
+  "timezone_guess": "UTC",
+  "utc_offset_guess": "+00:00",
+  "warnings": []
+ },
+ "node_groups": {
+  "Online Banking Web": {
+   "basis": "business",
+   "comparable": true,
+   "err_pct": {
+    "online-banking-web": 0.3858,
+    "online-banking-web-02": 0.4454
+   },
+   "gap": {
+    "den": 2165385,
+    "num": 1025428,
+    "pct": 47.3555
+   },
+   "idle": false,
+   "lowest": "online-banking-web-02",
+   "lowest_requests": 1139957,
+   "mean_others": 2165385.0,
+   "members": {
+    "online-banking-web": 2165385,
+    "online-banking-web-02": 1139957
+   },
+   "members_all": {
+    "online-banking-web": 2286397,
+    "online-banking-web-02": 1260917
+   },
+   "names": [
+    "online-banking-web",
+    "online-banking-web-02"
+   ],
+   "not_comparable": [],
+   "p95_kind": "service",
+   "p95_s": {
+    "online-banking-web": 3.32,
+    "online-banking-web-02": 1.75
+   },
+   "p95_worst_s": {
+    "online-banking-web": 31.27,
+    "online-banking-web-02": 3.249
+   },
+   "share_of_total": {
+    "den": 3626167,
+    "num": 3547314,
+    "pct": 97.8254
+   },
+   "source": "auto",
+   "tier": "aggregate"
+  }
+ },
+ "noise": {
+  "by_class": {
+   "health": {
+    "failed": 0,
+    "requests": 241920,
+    "resources": 2
+   },
+   "scanner": {
+    "failed": 52,
+    "requests": 52,
+    "resources": 3
+   }
+  },
+  "by_design_candidates": [],
+  "rules_applied": [
+   {
+    "class": "health",
+    "failed": 0,
+    "requests": 241920,
+    "resources": 2,
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "services": [
+     "online-banking-web",
+     "online-banking-web-02"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 40,
+    "requests": 40,
+    "resources": 1,
+    "rule": "builtin:scanner:^(PROPFIND|MKCOL|TRACE|TRACK|BADMETHOD|BADMTHD|DEBUG)( |$)",
+    "services": [
+     "online-banking-web"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 9,
+    "requests": 9,
+    "resources": 1,
+    "rule": "builtin:scanner:(?i)phpinfo",
+    "services": [
+     "online-banking-web"
+    ],
+    "source": "builtin",
+    "why": ""
+   },
+   {
+    "class": "scanner",
+    "failed": 3,
+    "requests": 3,
+    "resources": 1,
+    "rule": "builtin:scanner:(?i)^((GET|HEAD|POST) )?/manager/(status|html|text)",
+    "services": [
+     "online-banking-web"
+    ],
+    "source": "builtin",
+    "why": ""
+   }
+  ]
+ },
+ "ratios": [],
+ "resources": {
+  "batch-posting-01": [
+   {
+    "calls": 39584,
+    "class": "business",
+    "err": {
+     "den": 39584,
+     "num": 11875,
+     "pct": 29.9995
+    },
+    "failed": 11875,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 7.763,
+    "p95_source": "endpoints",
+    "redacted": "POST Batch/Reconcile",
+    "resource": "POST Batch/Reconcile",
+    "rule": "",
+    "sample": {
+     "calls": 47,
+     "capped": false,
+     "err": {
+      "den": 47,
+      "num": 17,
+      "pct": 36.1702
+     },
+     "failed": 17,
+     "n": 47,
+     "p50_s": 4.09,
+     "p95_ci_s": [
+      7.37,
+      8.97
+     ],
+     "p95_s": 7.78,
+     "signal": 47
+    },
+    "short": "POST Batch/Reconcile",
+    "source": "both",
+    "status_mix": {
+     "2xx": 30,
+     "5xx": 17
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 39584,
+     "failed": 11875,
+     "p95_s": 7.763
+    }
+   },
+   {
+    "calls": 39269,
+    "class": "business",
+    "err": {
+     "den": 39269,
+     "num": 12173,
+     "pct": 30.999
+    },
+    "failed": 12173,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 9.481,
+    "p95_source": "endpoints",
+    "redacted": "POST Batch/PostLedger",
+    "resource": "POST Batch/PostLedger",
+    "rule": "",
+    "sample": {
+     "calls": 51,
+     "capped": false,
+     "err": {
+      "den": 51,
+      "num": 16,
+      "pct": 31.3725
+     },
+     "failed": 16,
+     "n": 51,
+     "p50_s": 4.78,
+     "p95_ci_s": [
+      8.66,
+      15.84
+     ],
+     "p95_s": 10.92,
+     "signal": 51
+    },
+    "short": "POST Batch/PostLedger",
+    "source": "both",
+    "status_mix": {
+     "2xx": 35,
+     "5xx": 16
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 39269,
+     "failed": 12173,
+     "p95_s": 9.481
+    }
+   }
+  ],
+  "online-banking-web": [
+   {
+    "calls": 1795964,
+    "class": "business",
+    "err": {
+     "den": 1795964,
+     "num": 2694,
+     "pct": 0.15
+    },
+    "failed": 2694,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 1.239,
+    "p95_source": "endpoints",
+    "redacted": "GET Account/Summary",
+    "resource": "GET Account/Summary",
+    "rule": "",
+    "sample": {
+     "calls": 2341,
+     "capped": false,
+     "err": {
+      "den": 2341,
+      "num": 4,
+      "pct": 0.1709
+     },
+     "failed": 4,
+     "n": 2341,
+     "p50_s": 0.533,
+     "p95_ci_s": [
+      1.18,
+      1.26
+     ],
+     "p95_s": 1.22,
+     "signal": 2341
+    },
+    "short": "GET Account/Summary",
+    "source": "both",
+    "status_mix": {
+     "2xx": 2337,
+     "5xx": 4
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 1795964,
+     "failed": 2694,
+     "p95_s": 1.239
+    }
+   },
+   {
+    "calls": 246051,
+    "class": "business",
+    "err": {
+     "den": 246051,
+     "num": 5167,
+     "pct": 2.1
+    },
+    "failed": 5167,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 3.249,
+    "p95_source": "endpoints",
+    "redacted": "POST Payments/Transfer",
+    "resource": "POST Payments/Transfer",
+    "rule": "",
+    "sample": {
+     "calls": 295,
+     "capped": false,
+     "err": {
+      "den": 295,
+      "num": 5,
+      "pct": 1.6949
+     },
+     "failed": 5,
+     "n": 295,
+     "p50_s": 1.15,
+     "p95_ci_s": [
+      2.61,
+      3.86
+     ],
+     "p95_s": 3.05,
+     "signal": 295
+    },
+    "short": "POST Payments/Transfer",
+    "source": "both",
+    "status_mix": {
+     "2xx": 290,
+     "5xx": 5
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 246051,
+     "failed": 5167,
+     "p95_s": 3.249
+    }
+   },
+   {
+    "calls": 123370,
+    "class": "business",
+    "err": {
+     "den": 123370,
+     "num": 493,
+     "pct": 0.3996
+    },
+    "failed": 493,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 31.27,
+    "p95_source": "endpoints",
+    "redacted": "GET Statements/Download",
+    "resource": "GET Statements/Download",
+    "rule": "",
+    "sample": {
+     "calls": 136,
+     "capped": false,
+     "err": {
+      "den": 136,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 136,
+     "p50_s": 8.68,
+     "p95_ci_s": [
+      22.38,
+      37.49
+     ],
+     "p95_s": 29.38,
+     "signal": 136
+    },
+    "short": "GET Statements/Download",
+    "source": "both",
+    "status_mix": {
+     "2xx": 136
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 123370,
+     "failed": 493,
+     "p95_s": 31.27
+    }
+   },
+   {
+    "calls": 120960,
+    "class": "health",
+    "err": {
+     "den": 120960,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 0.003,
+    "p95_source": "endpoints",
+    "redacted": "GET health",
+    "resource": "GET health",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 143,
+     "capped": false,
+     "err": {
+      "den": 143,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 143,
+     "p50_s": 0.002,
+     "p95_ci_s": [
+      0.003,
+      0.003
+     ],
+     "p95_s": 0.003,
+     "signal": 143
+    },
+    "short": "GET health",
+    "source": "both",
+    "status_mix": {
+     "2xx": 143
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 120960,
+     "failed": 0,
+     "p95_s": 0.003
+    }
+   },
+   {
+    "calls": 40,
+    "class": "scanner",
+    "err": {
+     "den": 40,
+     "num": 40,
+     "pct": 100.0
+    },
+    "failed": 40,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "BADMETHOD /QuAlYs",
+    "resource": "BADMETHOD /QuAlYs",
+    "rule": "builtin:scanner:^(PROPFIND|MKCOL|TRACE|TRACK|BADMETHOD|BADMTHD|DEBUG)( |$)",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "BADMETHOD /QuAlYs",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 40,
+     "failed": 40,
+     "p95_s": 0.012
+    }
+   },
+   {
+    "calls": 9,
+    "class": "scanner",
+    "err": {
+     "den": 9,
+     "num": 9,
+     "pct": 100.0
+    },
+    "failed": 9,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "GET /phpinfo.php",
+    "resource": "GET /phpinfo.php",
+    "rule": "builtin:scanner:(?i)phpinfo",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "GET /phpinfo.php",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 9,
+     "failed": 9,
+     "p95_s": 0.012
+    }
+   },
+   {
+    "calls": 3,
+    "class": "scanner",
+    "err": {
+     "den": 3,
+     "num": 3,
+     "pct": 100.0
+    },
+    "failed": 3,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 0,
+    "operation": null,
+    "p95_s": 0.012,
+    "p95_source": "endpoints",
+    "redacted": "GET /manager/status",
+    "resource": "GET /manager/status",
+    "rule": "builtin:scanner:(?i)^((GET|HEAD|POST) )?/manager/(status|html|text)",
+    "sample": {
+     "calls": 0,
+     "capped": false,
+     "err": {
+      "den": 0,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 0,
+     "p50_s": null,
+     "p95_ci_s": null,
+     "p95_s": null
+    },
+    "short": "GET /manager/status",
+    "source": "endpoints",
+    "status_mix": {},
+    "tier": "aggregate",
+    "week": {
+     "calls": 3,
+     "failed": 3,
+     "p95_s": 0.012
+    }
+   }
+  ],
+  "online-banking-web-02": [
+   {
+    "calls": 999208,
+    "class": "business",
+    "err": {
+     "den": 999208,
+     "num": 1699,
+     "pct": 0.17
+    },
+    "failed": 1699,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 1.369,
+    "p95_source": "endpoints",
+    "redacted": "GET Account/Summary",
+    "resource": "GET Account/Summary",
+    "rule": "",
+    "sample": {
+     "calls": 1228,
+     "capped": false,
+     "err": {
+      "den": 1228,
+      "num": 3,
+      "pct": 0.2443
+     },
+     "failed": 3,
+     "n": 1228,
+     "p50_s": 0.592,
+     "p95_ci_s": [
+      1.31,
+      1.43
+     ],
+     "p95_s": 1.37,
+     "signal": 1228
+    },
+    "short": "GET Account/Summary",
+    "source": "both",
+    "status_mix": {
+     "2xx": 1225,
+     "5xx": 3
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 999208,
+     "failed": 1699,
+     "p95_s": 1.369
+    }
+   },
+   {
+    "calls": 140749,
+    "class": "business",
+    "err": {
+     "den": 140749,
+     "num": 3378,
+     "pct": 2.4
+    },
+    "failed": 3378,
+    "failure_known": true,
+    "kpi": null,
+    "kpi_label": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 3.249,
+    "p95_source": "endpoints",
+    "redacted": "POST Payments/Transfer",
+    "resource": "POST Payments/Transfer",
+    "rule": "",
+    "sample": {
+     "calls": 172,
+     "capped": false,
+     "err": {
+      "den": 172,
+      "num": 3,
+      "pct": 1.7442
+     },
+     "failed": 3,
+     "n": 172,
+     "p50_s": 1.2,
+     "p95_ci_s": [
+      2.72,
+      4.32
+     ],
+     "p95_s": 2.99,
+     "signal": 172
+    },
+    "short": "POST Payments/Transfer",
+    "source": "both",
+    "status_mix": {
+     "2xx": 169,
+     "5xx": 3
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 140749,
+     "failed": 3378,
+     "p95_s": 3.249
+    }
+   },
+   {
+    "calls": 120960,
+    "class": "health",
+    "err": {
+     "den": 120960,
+     "num": 0,
+     "pct": 0.0
+    },
+    "failed": 0,
+    "failure_known": true,
+    "kpi": null,
+    "monitors": 3,
+    "operation": null,
+    "p95_s": 0.003,
+    "p95_source": "endpoints",
+    "redacted": "GET health",
+    "resource": "GET health",
+    "rule": "builtin:health:(?i)^((GET|HEAD|POST) )?/?((api|v\\d+|_?internal|management|actuator|health|monitoring)/)?(hc|health|healthz|healthcheck|health[-_]?check|ping|ready|readiness|live|liveness|alive|status|heartbeat|up)/?$",
+    "sample": {
+     "calls": 148,
+     "capped": false,
+     "err": {
+      "den": 148,
+      "num": 0,
+      "pct": 0.0
+     },
+     "failed": 0,
+     "n": 148,
+     "p50_s": 0.002,
+     "p95_ci_s": [
+      0.003,
+      0.003
+     ],
+     "p95_s": 0.003,
+     "signal": 148
+    },
+    "short": "GET health",
+    "source": "both",
+    "status_mix": {
+     "2xx": 148
+    },
+    "tier": "aggregate",
+    "week": {
+     "calls": 120960,
+     "failed": 0,
+     "p95_s": 0.003
+    }
+   }
+  ]
+ },
+ "services": {
+  "batch-posting-01": {
+   "business_endpoints": 2,
+   "display": "batch-posting-01",
+   "domain": "batch-posting",
+   "endpoints": 2,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 78853,
+     "num": 24048,
+     "pct": 30.4973
+    },
+    "business": {
+     "den": 78853,
+     "num": 24048,
+     "pct": 30.4973
+    }
+   },
+   "err_base": {
+    "all": 78853,
+    "business": 78853
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 24048,
+    "business": 24048
+   },
+   "failure_known": true,
+   "hosts": [],
+   "list_reason": "probe_listed",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": true,
+   "node_group": null,
+   "noise": {},
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": null,
+   "p95_kind": null,
+   "p95_s": null,
+   "p95_source": null,
+   "p95_worst_resource": "POST Batch/PostLedger",
+   "p95_worst_s": 9.481,
+   "requests": {
+    "all": 78853,
+    "business": 78853,
+    "tier": "aggregate"
+   },
+   "requests_services_list": null,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 98,
+    "failed": 33,
+    "framework_rows": 0,
+    "rows": 98,
+    "with_signal": 98
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 65,
+    "5xx": 33
+   },
+   "tech": "",
+   "tier": "staff",
+   "type": "",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "online-banking-web": {
+   "business_endpoints": 3,
+   "display": "online-banking-web",
+   "domain": "online-banking-web",
+   "endpoints": 7,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 2286397,
+     "num": 8406,
+     "pct": 0.3677
+    },
+    "business": {
+     "den": 2165385,
+     "num": 8354,
+     "pct": 0.3858
+    }
+   },
+   "err_base": {
+    "all": 2286397,
+    "business": 2165385
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 8406,
+    "business": 8354
+   },
+   "failure_known": true,
+   "hosts": [],
+   "list_reason": "probe_listed",
+   "monitor_states": {},
+   "monitors": 3,
+   "monitors_known": true,
+   "node_group": "Online Banking Web",
+   "noise": {
+    "health": {
+     "calls": 120960,
+     "failed": 0,
+     "resources": 1
+    },
+    "scanner": {
+     "calls": 52,
+     "failed": 52,
+     "resources": 3
+    }
+   },
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": [
+    2.45,
+    4.87
+   ],
+   "p95_kind": "service",
+   "p95_s": 3.32,
+   "p95_source": "sample (request-weighted over 2,772 entry spans)",
+   "p95_worst_resource": "GET Statements/Download",
+   "p95_worst_s": 31.27,
+   "requests": {
+    "all": 2286397,
+    "business": 2165385,
+    "tier": "aggregate"
+   },
+   "requests_services_list": null,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 2915,
+    "failed": 9,
+    "framework_rows": 0,
+    "rows": 2915,
+    "with_signal": 2915
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 2906,
+    "5xx": 9
+   },
+   "tech": "",
+   "tier": "staff",
+   "type": "",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "online-banking-web-02": {
+   "business_endpoints": 2,
+   "display": "online-banking-web-02",
+   "domain": "online-banking-web",
+   "endpoints": 3,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 1260917,
+     "num": 5077,
+     "pct": 0.4026
+    },
+    "business": {
+     "den": 1139957,
+     "num": 5077,
+     "pct": 0.4454
+    }
+   },
+   "err_base": {
+    "all": 1260917,
+    "business": 1139957
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 5077,
+    "business": 5077
+   },
+   "failure_known": true,
+   "hosts": [],
+   "list_reason": "probe_listed",
+   "monitor_states": {},
+   "monitors": 3,
+   "monitors_known": true,
+   "node_group": "Online Banking Web",
+   "noise": {
+    "health": {
+     "calls": 120960,
+     "failed": 0,
+     "resources": 1
+    }
+   },
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": [
+    1.62,
+    1.92
+   ],
+   "p95_kind": "service",
+   "p95_s": 1.75,
+   "p95_source": "sample (request-weighted over 1,400 entry spans)",
+   "p95_worst_resource": "POST Payments/Transfer",
+   "p95_worst_s": 3.249,
+   "requests": {
+    "all": 1260917,
+    "business": 1139957,
+    "tier": "aggregate"
+   },
+   "requests_services_list": null,
+   "role": "entry",
+   "slos": "",
+   "spans": {
+    "entry": 1548,
+    "failed": 6,
+    "framework_rows": 0,
+    "rows": 1548,
+    "with_signal": 1548
+   },
+   "spans_without_entries": 0,
+   "status_mix": {
+    "2xx": 1542,
+    "5xx": 6
+   },
+   "tech": "",
+   "tier": "staff",
+   "type": "",
+   "unmarked_spans": 0,
+   "versions": []
+  },
+  "sql-server": {
+   "business_endpoints": 0,
+   "display": "sql-server",
+   "domain": "",
+   "endpoints": 0,
+   "envs": "",
+   "err": {
+    "all": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    },
+    "business": {
+     "den": 0,
+     "num": 0,
+     "pct": 0.0
+    }
+   },
+   "err_base": {
+    "all": 0,
+    "business": 0
+   },
+   "err_services_list": null,
+   "failed": {
+    "all": 0,
+    "business": 0
+   },
+   "failure_known": false,
+   "hosts": [],
+   "list_reason": "markerless",
+   "monitor_states": {},
+   "monitors": 0,
+   "monitors_known": false,
+   "node_group": null,
+   "noise": {},
+   "operation": "",
+   "operation_confidence": null,
+   "operation_source": "placeholder",
+   "p95_ci_s": null,
+   "p95_kind": null,
+   "p95_s": null,
+   "p95_source": null,
+   "p95_worst_resource": null,
+   "p95_worst_s": null,
+   "requests": {
+    "all": 0,
+    "business": 0,
+    "tier": "sample"
+   },
+   "requests_services_list": null,
+   "role": "integration",
+   "slos": "",
+   "spans": {
+    "entry": 0,
+    "failed": 0,
+    "framework_rows": 0,
+    "rows": 11875,
+    "with_signal": 0
+   },
+   "spans_without_entries": 11875,
+   "status_mix": {},
+   "tech": "",
+   "tier": "internal",
+   "type": "",
+   "unmarked_spans": 11875,
+   "versions": []
+  }
+ },
+ "tables": {},
+ "totals": {
+  "business_failed": 37479,
+  "business_requests": 3384195,
+  "dependencies": 1,
+  "domains": 2,
+  "endpoints": 12,
+  "err": {
+   "den": 3626167,
+   "num": 37531,
+   "pct": 1.035
+  },
+  "err_business": {
+   "den": 3384195,
+   "num": 37479,
+   "pct": 1.1075
+  },
+  "failed": 37531,
+  "noise_requests": 241972,
+  "requests": 3626167,
+  "services_all": 4,
+  "services_counted": 3,
+  "services_entry": 3,
+  "services_inferred": 0,
+  "services_sample_only": [],
+  "span_rows": 16436,
+  "tier": "aggregate",
+  "traces": null
+ },
+ "window": {
+  "aggregate": {
+   "candidates": {
+    "1": 2,
+    "14": 2,
+    "2": 2,
+    "28": 2,
+    "3": 2,
+    "30": 0,
+    "5": 0,
+    "7": 2
+   },
+   "confidence": "medium",
+   "days": 7,
+   "proof": [
+    {
+     "implied_interval_s": 5.0,
+     "period_s": 5,
+     "probers": 1,
+     "requests": 120960,
+     "resource": "GET health",
+     "service": "online-banking-web"
+    },
+    {
+     "implied_interval_s": 5.0,
+     "period_s": 5,
+     "probers": 1,
+     "requests": 120960,
+     "resource": "GET health",
+     "service": "online-banking-web-02"
+    }
+   ],
+   "source": "ambiguous",
+   "tied": [
+    7,
+    14,
+    28
+   ],
+   "tier": "aggregate"
+  },
+  "per_day_allowed": false,
+  "phrase": {
+   "aggregate": "in the export window to 19 Nov 2026",
+   "sample": "in the 12-minute sample",
+   "sample_long": "in the 12-minute sample (19 Nov 09:30–09:42 UTC)",
+   "services_list": "in the Services-list export, range not proved",
+   "volumes": "in the export window to 19 Nov 2026"
+  },
+  "spans": {
+   "capped": false,
+   "end_local": "2026-11-19 09:42:00",
+   "end_utc": "2026-11-19T09:42:00.404000+00:00",
+   "files": [
+    {
+     "capped": false,
+     "end_local": "2026-11-19 09:42:00",
+     "end_utc": "2026-11-19T09:42:00.404000+00:00",
+     "file": "spans-2026-11-19.csv",
+     "minutes_text": "12",
+     "raw_rows": 16436,
+     "rows": 16436,
+     "start_local": "2026-11-19 09:30:00",
+     "start_utc": "2026-11-19T09:30:00.095000+00:00"
+    }
+   ],
+   "minutes": 12.0,
+   "minutes_text": "12",
+   "phrase": "in the 12-minute sample",
+   "phrase_long": "in the 12-minute sample (19 Nov 09:30–09:42 UTC)",
+   "rows": 16436,
+   "start_local": "2026-11-19 09:30:00",
+   "start_utc": "2026-11-19T09:30:00.095000+00:00",
+   "tier": "sample",
+   "tz": "UTC",
+   "when": "19 Nov 09:30–09:42 UTC",
+   "windows": [
+    {
+     "end_utc": "2026-11-19T09:42:00.404000+00:00",
+     "minutes": 12.0,
+     "start_utc": "2026-11-19T09:30:00.095000+00:00"
+    }
+   ]
+  },
+  "volumes_tier": "aggregate"
+ }
+}
